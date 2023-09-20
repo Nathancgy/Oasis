@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard</title>
+    <style>
+        /* CSS styling for the webpage */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Additional CSS styling for the header and main content section */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .channel-container {
+            display: flex; /* Use flexbox to align channels horizontally */
+            justify-content: space-between; /* Adjust the spacing between channels */
+            margin: 20px;
+        }
+GVB
+        .channel {
+            padding: 20px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Oasis</h1>
+    </header>
+
+    <h2>Hi <%= username %>!</h2>
+
+    <div class="channel-container">
+        <div class="channel">
+            <h3>General</h3>
+            <a href="/general">Posts</a>
+        </div>
+
+        <div class="channel">
+            <h4>Academics</h4>
+            <ul>
+                <li><a href="#">Discussion Topic 4</a></li>
+                <li><a href="#">Discussion Topic 5</a></li>
+                <li><a href="#">Discussion Topic 6</a></li>
+            </ul>
+        </div>
+
+        <div class="channel">
+            <h5>Chat</h5>
+            <ul>
+                <li><a href="#">Discussion Topic 7</a></li>
+                <li><a href="#">Discussion Topic 8</a></li>
+                <li><a href="#">Discussion Topic 9</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
