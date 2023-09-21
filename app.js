@@ -136,3 +136,7 @@ app.post('/general', (req, res) => {
         res.redirect('/general')
     })
 });
+
+app.use((req, res, next) => {
+    res.status(404).render('404');
+})
