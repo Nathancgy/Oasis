@@ -6,13 +6,15 @@
         <link rel="stylesheet" href="/general.css">
     </head>
     <body>
-        <div id="posts" class="word-box">
-          <% generalPosts.forEach(post => { %>
-              <h3><%= post.title %></h3>
-              <p><%= post.content %></p>
-              <p>posted by <%= post.username %></p>
-              <br><br><br>
-          <% }); %>
+        <div class="bg">
+            <div id="posts" class="word-box">
+            <% generalPosts.forEach(post => { %>
+                <h3><%= post.title %></h3>
+                <p><%= post.content %></p>
+                <p>posted by <%= post.username %></p>
+                <br><br><br>
+            <% }); %>
+            </div>
         </div>
         
         <form action="/general" method="POST" id="postForm">
