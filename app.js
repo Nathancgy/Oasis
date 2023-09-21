@@ -7,6 +7,7 @@ const p = 'mongodb+srv://jess:jess@cluster0.cgg9ypb.mongodb.net/?retryWrites=tru
 const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+
 const User = require('./models/user');
 const Post = require('./models/post');
 
@@ -17,6 +18,7 @@ passport.use(new LocalStrategy(
             if (!user || user.password !== password) {
                 return done(null, false, {message: 'Incorrect username or password'})
             }
+            return done(null, user);
         } catch (error) {
             return done(error);
         }
@@ -70,6 +72,9 @@ mongoose.connect(p, { useNewUrlParser: true, useUnifiedTopology: true })
     .catch(error => {
         console.error('Error connecting to MongoDB:', error);
     });
+
+app.use(express.static('public'));
+
 
 app.get('/register', (req, res) => {
     if (req.isAuthenticated()) {

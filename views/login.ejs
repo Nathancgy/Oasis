@@ -1,46 +1,9 @@
-<!--
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="index.css">
-</head>
-<style>
-    form{
-        top:100px;
-        left: 200px;
-        border:black solid;
-        padding-top: 30px;
-        padding-bottom: 80px;
-        padding-left: 40px;
-        width: 200px;
-        position: relative;
-        border-radius: 14px;
-        background-color:white;
-    }
-    body {
-        background-color: #333;
-    }
-</style>
-<body>
-  <form action="/login" method="POST" id="loginForm">
-      <h1>Login</h1>
-      <label for="username">Username:</label><br>
-      <ion-icon name="mail-outline"></ion-icon>
-      <input type="text" name="username" id="username"><br><br>
-      <label for="password">Password:</label><br>
-      <ion-icon name="lock-closed-outline"></ion-icon>
-      <input name="password" type="password" id="password"><br><br>
-      <button>Login</button>
-      <p>Don't have an account <a href="register">Register</p>
-  </form>
-</body>
-</html>
--->
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="/index.css">
     <title>login</title>
 </head>
     <body>
@@ -58,9 +21,6 @@
                             <ion-icon name="lock-closed-outline"></ion-icon>
                             <input name="password" type="password" required id="password">
                             <label for="password">Password:</label>
-                        </div>
-                        <div class="forget">
-                            <label for=""><input type="checkbox">Remember Me  <a href="#">Forget Password</a></label>
                         </div>
                         <button>Login</button>
                         <div class="register">
