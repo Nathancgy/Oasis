@@ -5,6 +5,11 @@
     font-family: 'poppins',sans-serif;
     font-size: 24px;
 }
+html {
+    background: url('dashboard.webp')no-repeat;
+    background-position: center;
+    background-size: cover;
+}
 body {
     margin: 0;
     padding: 0;
@@ -12,33 +17,48 @@ body {
 
 /* Additional CSS styling for the header and main content section */
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid #ffffff;
+    border-radius: 10px;
     padding: 10px;
+    color: white;
+    position: relative;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 23cm;
+    margin-top: 1cm;
     text-align: center;
 }
 
 .channel-container {
     display: flex; /* Use flexbox to align channels horizontally */
-    justify-content: space-between; /* Adjust the spacing between channels */
-    margin: 20px;
+    justify-content: center; /* Adjust the spacing between channels */
+    margin: auto;
 }
 .channel {
-    padding: 20px;
-    background-color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    position: top;
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 h1 {
     font-size: 38px;
 }
 h2 {
-    font-size: 32px;
+    font-size: 38px;
 }
 h3 {
-    font-size: 32px;
+    font-size: 38px;
 }
 h4 {
-    font-size: 32px;
+    font-size: 38px;
 }
 h5 {
-    font-size: 32px;
+    font-size: 38px;
 }
