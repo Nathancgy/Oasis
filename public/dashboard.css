@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins',sans-serif;
+    font-size: 24px;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Additional CSS styling for the header and main content section */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.channel-container {
+    display: flex; /* Use flexbox to align channels horizontally */
+    justify-content: space-between; /* Adjust the spacing between channels */
+    margin: 20px;
+}
+.channel {
+    padding: 20px;
+    background-color: #fff;
+}
+h1 {
+    font-size: 38px;
+}
+h2 {
+    font-size: 32px;
+}
+h3 {
+    font-size: 32px;
+}
+h4 {
+    font-size: 32px;
+}
+h5 {
+    font-size: 32px;
+}
