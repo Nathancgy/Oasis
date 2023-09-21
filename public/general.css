@@ -13,5 +13,10 @@ body{
     
     background: url('intro.jpg')no-repeat;
     background-position: center;
-    background-size: auto;
+    background-size: cover;
+}
+.word-box {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    color: white;
 }
