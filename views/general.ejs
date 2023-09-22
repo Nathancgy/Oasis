@@ -23,6 +23,7 @@
         body {
             margin-left: 100px;
             margin-right: 100px;
+            margin-top: 50px;
         }
 
     </style>
@@ -40,7 +41,12 @@
                             <input type="hidden" name="postId" value="<%= post.id %>"> <!-- Assuming each post has an ID -->
                             <button>Delete Post</button>
                         </form>
-                    <% } %>
+                    <% } if(username == 'admin1' || username == 'Admin') {%>
+                        <form action="/generalDeletePost" method="POST" id="deletePost">
+                        <input type="hidden" name="postId" value="<%= post.id %>"> <!-- Assuming each post has an ID -->
+                        <button>Delete Post</button>
+                    </form> 
+                    <% }%>
                 <% }); %>
             </div>
         </div>
