@@ -137,6 +137,19 @@ app.post('/general', (req, res) => {
     })
 });
 
+app.post('/generalDeletePost', async (req, res) => {
+    console.log(req.body.postId)
+    const deleteId = req.body.postId;
+    try {
+        await Post.deleteOne({ _id: deleteId });
+        res.redirect('/general');
+    } catch (error) {
+        console.error('Error during post deletion:', error.message);
+        res.status(500).send('Internal server error');
+    }
+});
+
+
 app.use((req, res, next) => {
     res.status(404).render('404');
 })
