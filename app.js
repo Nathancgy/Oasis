@@ -138,6 +138,7 @@ app.post('/general', (req, res) => {
 });
 
 app.post('/generalDeletePost', async (req, res) => {
+    console.log('Post delete invoked' )
     console.log(req.body.postId)
     const deleteId = req.body.postId;
     try {
