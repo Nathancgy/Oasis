@@ -54,7 +54,7 @@
                     <p>posted by <%= post.username %></p>
                     <br><br><br>
                     
-                    <% if(post.username === username) { %>
+                    <% if(post.username === username && username != 'admin1' && username != 'Admin') { %>
                         <form action="/generalDeletePost" method="POST" id="deletePost">
                             <input type="hidden" name="postId" value="<%= post.id %>"> <!-- Assuming each post has an ID -->
                             <button>Delete Post</button>
