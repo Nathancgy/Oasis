@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <div id="topBar">
-            <h1 id="title">Dashboard</h1>
-        </div>
-        <h1>Hello <%= username%></h1>
-    </head>
-
     <style>
         h1{
-            font-size: 20px;
+            font-size: 28px;
             position: relative;
             left: 10px;
+            color:aliceblue
         }
         body{
             margin: 0px;
+            background: url('dashboard.webp')no-repeat;
+            background-position: auto;
+            background-size: cover;
         }
         #topBar{
             border: solid black;
@@ -30,8 +27,18 @@
             position: relative;
             left: 20px;
         }
+        a{
+            color:aliceblue
+        }
 
     </style>
+
+    <head>
+        <div id="topBar">
+            <h1 id="title">Dashboard</h1>
+        </div>
+        <h1>Hello <%= username%></h1>
+    </head>
 
     <body>
         <div id="fakeBody">
