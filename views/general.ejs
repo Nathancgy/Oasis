@@ -148,7 +148,7 @@ html {
                             <input type="hidden" name="postId" value="<%= post.id %>"> <!-- Assuming each post has an ID -->
                             <button>Delete Post</button>
                         </form>
-                    <% } if(username == 'admin1' || username == 'Admin' || username == 'Wario') {%>
+                    <% } if(username == 'admin1' || username == 'Admin') {%>
                         <form action="/generalDeletePost" method="POST" id="deletePost">
                         <input type="hidden" name="postId" value="<%= post.id %>"> <!-- Assuming each post has an ID -->
                         <button>Delete Post</button>
