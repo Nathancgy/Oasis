@@ -122,11 +122,14 @@ app.get('/dashboard', checkAuthenticated, (req, res) => {
 
 app.get('/',async (req, res) => {
     res.render('intro');
+    const ip_address = req.ip || req.connection.remoteAddress;
+    console.log(ip_address);
 })
 
 app.get('/general', checkAuthenticated, async (req, res) => {
     const generalPosts = await Post.find({ group: 'general' });
-    res.render('general', { generalPosts, username: req.user.username });
+    const reversedPosts = generalPosts.reverse();
+    res.render('general', { reversedPosts, username: req.user.username });
 })
 
 
