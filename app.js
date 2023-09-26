@@ -104,6 +104,8 @@ app.post('/register', async (req, res) => {
 
 
 app.get('/login', (req, res) => {
+    const ip_address = req.ip || req.connection.remoteAddress;
+    console.log(ip_address);
     if (req.isAuthenticated()) {
         return res.redirect('/dashboard');
     }
@@ -122,8 +124,6 @@ app.get('/dashboard', checkAuthenticated, (req, res) => {
 
 app.get('/',async (req, res) => {
     res.render('intro');
-    const ip_address = req.ip || req.connection.remoteAddress;
-    console.log(ip_address);
 })
 
 app.get('/general', checkAuthenticated, async (req, res) => {
