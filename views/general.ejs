@@ -142,6 +142,10 @@ html {
                     <i class="heartafter" style="color: #f10909;"></i>
                     <!--End of empty heart-->
                     <br><br><br>
+                    <div>
+                        <p>posted on <%= post.postingtime %></p>
+                    </div>
+                    
                     
                     <% if(post.username === username && username != 'admin1' && username != 'Admin') { %>
                         <form action="/generalDeletePost" method="POST" id="deletePost">

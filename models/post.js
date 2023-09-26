@@ -13,6 +13,14 @@ const postSchema = new Schema ({
     },
     username: {
         type: String,
+    },
+    postingtime: {
+        type: Date,
+        default: Date.now,
+        get: function(value) {
+            return value.toLocaleString([], { dateStyle: 'short', timeStyle: 'short' });
+        },
+        immutable: true,
     }
 })
 
