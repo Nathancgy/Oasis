@@ -1,15 +1,10 @@
 @import url( 'https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-*{
+body, h1, p {
     margin: 0;
     padding: 0;
     font-family: 'poppins',sans-serif;
-}
+  }
 body {
-    display: flex;
-    justify-content: flex-start;
-    align-items: top;
-    min-height: 100vh;
-    width: 100%;
     
     background: url('intro.jpg')no-repeat;
     background-position: top;
@@ -24,21 +19,40 @@ header {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 20px;
     color: #F4A896;
-    position: fixed;
-    width: 100%;
-    margin-top:0;
-    margin-bottom: 0;
+    border: 2px solid #358597;
 }
 nav {
     background-color: rgba(0, 0, 0, 0.5);
-    float: left;
-    margin-top: 150px;
     padding: 10px;
     color: #F4A896;
-    width: 30%;
-    height: 60px;
-    position: fixed;
+    border: 2px solid #358597;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color:#F4A896;
+}
+nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+    color:#F4A896;
 }
 a{
+    color:#F4A896;
+    font-size: 20px;
+}
+section{
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2px;
+    text-align: center;
+    color: #358597;
+    border: 2px solid #358597;
+}
+footer{
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
     color: #F4A896;
+    text-align: center;
+    border: 2px solid #358597;
 }
