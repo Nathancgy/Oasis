@@ -176,10 +176,19 @@ footer{
     align-items: center;
   }
 
+  .gradient-text {
+    background: linear-gradient(to right, #F4A896, #04a2f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* For Firefox */
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }
+
+
   .channel {
     margin-right: 15px;
     font-size: 1.5rem;
-    color: aliceblue;
     text-decoration: none;
     padding: 5px 10px;
     border-radius: 5px;
@@ -187,7 +196,7 @@ footer{
   }
 
   .channel:hover {
-    background-color: #ff7f50;
+    background-color: rgba(300, 300, 300, 0.2);
     color: #fff;
   }
 
@@ -207,7 +216,9 @@ footer{
     }
   }
 
-  h3 {
+  .webicon {
     font-size: 2rem;
     margin-right: 15px;
+    font-weight: bold;
+    list-style: none;
   }
