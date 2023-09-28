@@ -3,12 +3,26 @@
     <head>
         <title>Oasis</title>
         <link rel="stylesheet" href="/intro.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     </head>
+    <script>
+        // JavaScript code to trigger the animation after page load
+        document.addEventListener("DOMContentLoaded", function(event) {
+          var channels = document.getElementsByClassName("channel");
+          for (var i = 0; i < channels.length; i++) {
+            channels[i].style.animationDelay = (i * 0.2) + "s";
+          }
+        });
+      </script>
     <body>
-        <nav>
+        <nav class="index">
+            <div class="icon-container">
+                <i class="ion ion-chatbubbles" style="font-size: 5rem;"></i>
+            </div>
+            <h3>Oasis</h3>
             <ul>
                 <li><a class="channel" href="login">Login</a></li>
                 <li><a class="channel" href="register">Register</a></li>
