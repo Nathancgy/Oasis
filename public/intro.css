@@ -233,7 +233,7 @@ footer{
 }
 
 .block {
-    width: 200px;
+    width: 600px;
     height: 150px;
     margin: 10px;
 }
@@ -243,4 +243,14 @@ footer{
   border-radius: 10px;
   padding: 7px;
   background-color: #358597;
+}
+h3{
+  background: linear-gradient(to left, #f07f66, #57d9f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* For Firefox */
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -webkit-text-stroke: 0.3px goldenrod;
+    text-stroke: 0.3px goldenrod;
 }
