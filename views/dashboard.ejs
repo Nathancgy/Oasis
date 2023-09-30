@@ -23,7 +23,7 @@
             top: 80px;
         }
         #topBar{
-            padding: 5px 0; /* Adjust the padding */
+            padding: 20px 0; /* Adjust the padding */
             width: 100%;
             background-color: #282828;
             color: rgb(180, 171, 171);
@@ -31,20 +31,96 @@
             top: 0;
             left: 0;
             z-index: 2;
+            display: flex;
+            justify-content: left;
         }
-        #fakeBody{
-            position: relative;
-            left: 10px;
-            width: 100%;
-        }
-        #title{
-            position: relative;
-            left: 20px;
-        }
-        a{
-            color:aliceblue
+        .channels {
+            display: flex;
+            align-items: center;
         }
 
+        .gradient-text {
+            background: linear-gradient(-45deg, #edf909, #6487e6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* For Firefox */
+            -moz-background-clip: text;
+            -moz-text-fill-color: transparent;
+            margin-left: 60px;
+            margin-top: 8px;
+        }
+
+
+        .channel {
+            margin-right: 15px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            -webkit-text-stroke: 0.5px goldenrod; /* For Chrome, Safari, and Opera */
+            text-stroke: 0.5px goldenrod; /* For other browsers */
+        }
+
+        .channel:hover {
+            background-color: rgba(300, 300, 300, 0.2);
+            color: #fff;
+        }
+
+        .channel:active {
+            animation: click-effect 0.3s ease-in-out;
+        }
+
+        @keyframes click-effect {
+            0% {
+            transform: scale(1);
+            }
+            50% {
+            transform: scale(0.9);
+            }
+            100% {
+            transform: scale(1);
+            }
+        }
+
+        .webicon {
+            font-size: 2rem;
+            margin-right: 15px;
+            font-weight: bold;
+            list-style: none;
+            -webkit-text-stroke: 0.5px goldenrod; /* For Chrome, Safari, and Opera */
+            text-stroke: 0.5px goldenrod; /* For other browsers */
+        }
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            color:yellow;
+        }
+        ul li{
+            display: inline-block;
+            margin-right: 10px;
+            color:yellow;
+        }
+        h{
+            margin-left: 10px;
+            background: linear-gradient(45deg, #edf909, #1c56f5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* For Firefox */
+            -moz-background-clip: text;
+            -moz-text-fill-color: transparent;
+            font-size:36px;
+            font-weight: 600;
+            -webkit-text-stroke: 0.5px goldenrod; /* For Chrome, Safari, and Opera */
+            text-stroke: 0.5px goldenrod; /* For other browsers */
+        }
+        h1{
+            color: aliceblue;
+            font-size: 28px;
+            font-weight: 600;
+        }
     </style>
 
     <head>
@@ -53,17 +129,17 @@
 
     <body>
         <div id="topBar">
-            <h1 id="title">Dashboard</h1>
+            <div class="icon-container">
+                <ion-icon name="chatbubbles-outline" style="font-size: 5rem;"></ion-icon>
+            </div>
+            <h>Dashboard</h>
+            <ul class="gradient-text">
+                <li><a class="channel" href="general">General</a></li>
+                <li><a class="channel" href="academics">Academics</a></li>
+                <li><a class="channel" href="announcement">Announcement</a></li>
+                <li><a class="channel" href="contact">Contact</a></li>
+            </ul>
         </div>
-        <h1>Hello <%= username%></h1>
-        <div id="fakeBody">
-        <div id="general">
-            <a href="general">General</a>
-        </div>
-        <br>
-        <div id="academics">
-            <a href="academics">Academics (currently unavailable)</a>
-        </div>
-        </div>
+        <h1>Hello! <%= username%></h1>
     </body>
 </html>
