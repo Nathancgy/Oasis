@@ -90,6 +90,13 @@ html {
     position: relative;
     left:550px;
 }
+
+.postLikes{
+    color: black;
+    position: relative;
+    left: 620px;
+    bottom: 90px;
+}
     </style>
 
 
@@ -144,7 +151,23 @@ html {
                         <button>Admin Delete</button>
                     </form> 
                     <% }%>
+
                 </div>
+                    <form action="/likeGeneralPost" method="POST" id="likePost">
+                        <input type="hidden" name="postId" value="<%= post.id %>">
+                        <input type="hidden" name="username" value="<%= username %>">
+                        <input type="hidden" name="forum" value="general">
+                        <button>Like</button>
+                    </form>
+                    <%let likes = 0 %>
+                    <% generalPostsLikes.forEach(like => { %>
+                        <% if(like.postId == post.id) { %>
+                            <% likes = likes + 1 %>
+                        <%  } %>
+                    <% }) %>
+                    <% console.log(likes)%>
+                    <h1 class="postLikes"><%= likes %></h1>
+
                 <% }); %>
             </div>
         </div>

@@ -10,6 +10,7 @@ const LocalStrategy = require('passport-local').Strategy;
 
 const User = require('./models/user');
 const Post = require('./models/post');
+const Like = require('./models/like');
 
 passport.use(new LocalStrategy(
     async (username, password, done) => {
@@ -129,7 +130,8 @@ app.get('/',async (req, res) => {
 app.get('/general', checkAuthenticated, async (req, res) => {
     const generalPosts = await Post.find({ group: 'general' });
     const reversedPosts = generalPosts.reverse();
-    res.render('general', { reversedPosts, username: req.user.username });
+    const generalPostsLikes = await Like.find({ forum: 'general' })
+    res.render('general', { reversedPosts, username: req.user.username, generalPostsLikes });
 })
 
 
@@ -152,6 +154,15 @@ app.post('/generalDeletePost', async (req, res) => {
         res.status(500).send('Internal server error');
     }
 });
+
+app.post('/likeGeneralPost', async (req, res) => {
+    const like = new Like(req.body);
+    like.save().then((result) => {
+        console.log(like)
+        res.redirect('/general');
+    })
+    
+})
 
 
 app.use((req, res, next) => {
