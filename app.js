@@ -136,12 +136,31 @@ app.get('/general', checkAuthenticated, async (req, res) => {
     res.render('general', { reversedPosts, username: req.user.username, generalPostsLikes });
 })
 
+app.get('/academics', checkAuthenticated, async (req, res) => {
+    const academicsPosts = await Post.find({ group: 'academics' });
+    const reversedPosts = academicsPosts.reverse();
+    const academicsPostsLikes = await Like.find({ forum: 'academics' })
+    res.render('academics', { reversedPosts, username: req.user.username, academicsPostsLikes });
+})
+
 
 app.post('/general', async (req, res) => {
     const post = new Post(req.body);
     await post.save().then((result) => {
         console.log('Post saved')
         res.redirect('/general')
+    })
+    const likestatus = new Likestatus({title: req.body.title, username: req.body.username, status: false})
+    await likestatus.save().then((result) => {
+        console.log('likestatus saved');
+    })
+});
+
+app.post('/academics', async (req, res) => {
+    const post = new Post(req.body);
+    await post.save().then((result) => {
+        console.log('Post saved')
+        res.redirect('/academics')
     })
     const likestatus = new Likestatus({title: req.body.title, username: req.body.username, status: false})
     await likestatus.save().then((result) => {
@@ -162,6 +181,19 @@ app.post('/generalDeletePost', async (req, res) => {
     }
 });
 
+app.post('/academicsDeletePost', async (req, res) => {
+    console.log('Post delete invoked' )
+    console.log(req.body.postId)
+    const deleteId = req.body.postId;
+    try {
+        await Post.deleteOne({ _id: deleteId });
+        res.redirect('/academics');
+    } catch (error) {
+        console.error('Error during post deletion:', error.message);
+        res.status(500).send('Internal server error');
+    }
+});
+
 app.post('/likeGeneralPost', async (req, res) => {
 
     await Like.deleteMany({ postId: req.body.postId, username: req.body.username })
@@ -172,6 +204,15 @@ app.post('/likeGeneralPost', async (req, res) => {
     
 })
 
+app.post('/likeAcademicsPost', async (req, res) => {
+
+    await Like.deleteMany({ postId: req.body.postId, username: req.body.username })
+    const like = new Like(req.body);
+    like.save().then((result) => {
+        res.redirect('/academics');
+    })
+    
+})
 
 app.use((req, res, next) => {
     res.status(404).render('404');
