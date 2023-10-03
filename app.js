@@ -11,6 +11,8 @@ const LocalStrategy = require('passport-local').Strategy;
 const User = require('./models/user');
 const Post = require('./models/post');
 const Like = require('./models/like');
+const Likestatus = require('./models/likestatus');
+
 
 passport.use(new LocalStrategy(
     async (username, password, done) => {
@@ -135,10 +137,15 @@ app.get('/general', checkAuthenticated, async (req, res) => {
 })
 
 
-app.post('/general', (req, res) => {
+app.post('/general', async (req, res) => {
     const post = new Post(req.body);
-    post.save().then((result) => {
+    await post.save().then((result) => {
+        console.log('Post saved')
         res.redirect('/general')
+    })
+    const likestatus = new Likestatus({title: req.body.title, username: req.body.username, status: false})
+    await likestatus.save().then((result) => {
+        console.log('likestatus saved');
     })
 });
 
@@ -156,9 +163,10 @@ app.post('/generalDeletePost', async (req, res) => {
 });
 
 app.post('/likeGeneralPost', async (req, res) => {
+
+    await Like.deleteMany({ postId: req.body.postId, username: req.body.username })
     const like = new Like(req.body);
     like.save().then((result) => {
-        console.log(like)
         res.redirect('/general');
     })
     
