@@ -125,7 +125,11 @@ app.get('/dashboard', checkAuthenticated, (req, res) => {
     res.render('dashboard', {username: req.user.username})
 })
 
-app.get('/',async (req, res) => {
+app.get('/',(req, res) => {
+    res.render('intro');
+})
+
+app.get('/intro',async (req, res) => {
     res.render('intro');
 })
 

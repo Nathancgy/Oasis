@@ -220,12 +220,17 @@ footer{
   }
 
   .webicon {
-    font-size: 2rem;
+    display: inline-block;
+    text-decoration: none;
     margin-right: 15px;
+    color:#F4A896;
+    font-size: 2rem;
     font-weight: bold;
-    list-style: none;
     -webkit-text-stroke: 0.5px goldenrod; /* For Chrome, Safari, and Opera */
     text-stroke: 0.5px goldenrod; /* For other browsers */
+  }
+  li{
+    list-style: none;
   }
   .container {
     display: flex;

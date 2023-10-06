@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
     <style>
+        @import url( 'https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
         h1{
             font-size: 20px;
-            position: relative;
+            position: fixed;
             left: 10px;
-            color:aliceblue
+            -webkit-text-stroke: 0.5px goldenrod; /* For Chrome, Safari, and Opera */
+            text-stroke: 0.5px goldenrod; /* For other browsers */
+        }
+        body, h1, p {
+            margin: 0;
+            padding: 0;
+            font-family: 'poppins',sans-serif;
         }
         body{
             background: url('dashboard.webp')no-repeat;
             background-position: auto;
             background-size: cover;
             background-attachment:fixed;
-            margin-right:auto;
-            margin-left:auto;
             margin-top: 50px;
-            padding: auto;
             width: 100%;
             font-family: Arial, sans-serif;
             height: 170%;
-            position: fixed;
+            position: relative;
             top: 80px;
         }
         #topBar{
             padding: 20px 0; /* Adjust the padding */
             width: 100%;
             background-color: #282828;
-            color: rgb(180, 171, 171);
+            color: #F4A896;
             position: fixed;
             top: 0;
             left: 0;
@@ -36,23 +40,18 @@
         }
         .channels {
             display: flex;
-            align-items: center;
+            align-items: left;
         }
 
         .gradient-text {
-            background: linear-gradient(-45deg, #edf909, #6487e6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            /* For Firefox */
-            -moz-background-clip: text;
-            -moz-text-fill-color: transparent;
-            margin-left: 60px;
-            margin-top: 8px;
+            color: #fcb2c9;
+            margin-left: 20px;
         }
 
 
         .channel {
             margin-right: 15px;
+            color: #fcb2c9;
             font-size: 1.5rem;
             font-weight: 600;
             text-decoration: none;
@@ -85,23 +84,27 @@
         }
 
         .webicon {
-            font-size: 2rem;
+            display: inline-block;
+            text-decoration: none;
             margin-right: 15px;
+            color:#F4A896;
+            font-size: 2rem;
             font-weight: bold;
-            list-style: none;
             -webkit-text-stroke: 0.5px goldenrod; /* For Chrome, Safari, and Opera */
             text-stroke: 0.5px goldenrod; /* For other browsers */
+            margin-top: 18px;
+        }
+        li{
+            list-style: none;
         }
         ul{
             list-style-type: none;
             margin: 0;
             padding: 0;
-            color:yellow;
         }
         ul li{
             display: inline-block;
             margin-right: 10px;
-            color:yellow;
         }
         h{
             margin-left: 10px;
@@ -117,29 +120,186 @@
             text-stroke: 0.5px goldenrod; /* For other browsers */
         }
         h1{
-            color: aliceblue;
+            color: #F4A896;
             font-size: 28px;
             font-weight: 600;
         }
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+        .icon-container{
+            margin-right: 10px;
+        }
+        footer{
+            background-color: rgba(51, 51, 51, 0.2);
+            padding: 20px;
+            flex-shrink: 0;
+            color: #F4A896;
+            text-align: center;
+        }
+        .sm a{
+            display: inline-flex;
+            text-decoration: none;
+            font-size: 36px;
+            width: 60px;
+            height: 60px;
+            color: #f0f0f0;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin: 0 7px;
+        }
+        .sm a::before{
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 25%;
+            z-index: -1;
+            transition: transform .3s ease-in;
+        }
+        .sm a:nth-child(1)::before{
+            background: #38529a;
+        }
+        .sm a:nth-child(2)::before{
+            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+        }
+        .sm a:nth-child(3)::before{
+            background: #1c96e9;
+        }
+        .sm a:nth-child(4)::before{
+            background: #f70000;
+        }
+        .sm a:nth-child(5)::before{
+            background: #046596;
+        }
+        .sm a:hover::before{
+            transform: scale(0);
+        }
+        .sm a i{
+            transition: transform .3s ease-in;
+        }
+        .sm a:nth-child(1):hover i{
+            background: #38529a;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -moz-background-clip: text;
+            -moz-text-fill-color: transparent;
+            -ms-background-clip: text;
+            -ms-text-fill-color: transparent;
+            -o-background-clip: text;
+            -o-text-fill-color: transparent;
+            transform: scale(1.5);
+        }
+        .sm a:nth-child(2):hover i{
+            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -moz-background-clip: text;
+            -moz-text-fill-color: transparent;
+            -ms-background-clip: text;
+            -ms-text-fill-color: transparent;
+            -o-background-clip: text;
+            -o-text-fill-color: transparent;
+            transform: scale(1.5);
+        }
+        .sm a:nth-child(3):hover i{
+            background: #1c96e9;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -moz-background-clip: text;
+            -moz-text-fill-color: transparent;
+            -ms-background-clip: text;
+            -ms-text-fill-color: transparent;
+            -o-background-clip: text;
+            -o-text-fill-color: transparent;
+            transform: scale(1.5);
+        }
+        .sm a:nth-child(4):hover i{
+            background: #f70000;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -moz-background-clip: text;
+            -moz-text-fill-color: transparent;
+            -ms-background-clip: text;
+            -ms-text-fill-color: transparent;
+            -o-background-clip: text;
+            -o-text-fill-color: transparent;
+            transform: scale(1.5);
+        }
+        .sm a:nth-child(5):hover i{
+            background: #046596;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -moz-background-clip: text;
+            -moz-text-fill-color: transparent;
+            -ms-background-clip: text;
+            -ms-text-fill-color: transparent;
+            -o-background-clip: text;
+            -o-text-fill-color: transparent;
+            transform: scale(1.5);
+        }
+        nav{
+            flex-grow: 1;
+        }
+        p{text-align: left;}
     </style>
 
     <head>
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     </head>
+    <script>
+        // JavaScript code to trigger the animation after page load
+        document.addEventListener("DOMContentLoaded", function(event) {
+          var channels = document.getElementsByClassName("channel");
+          for (var i = 0; i < channels.length; i++) {
+            channels[i].style.animationDelay = (i * 0.2) + "s";
+          }
+        });
+      </script>
 
     <body>
-        <div id="topBar">
+        <header id="topBar">
             <div class="icon-container">
-                <ion-icon name="chatbubbles-outline" style="font-size: 5rem;"></ion-icon>
+                <ion-icon name="chatbubbles-outline" style="font-size: 4rem;"></ion-icon>
             </div>
-            <h>Dashboard</h>
+            <li><a class="webicon" href="intro">Oasis</a></li>
+        </header>
+        <h1>Hello! <%= username%></h1>
+        <br>
+        <br>
+        <br>
+        <br>
+        <nav>
             <ul class="gradient-text">
                 <li><a class="channel" href="general">General</a></li>
+                <br>
+                <br>
                 <li><a class="channel" href="academics">Academics</a></li>
+                <br>
+                <br>
                 <li><a class="channel" href="announcement">Announcement</a></li>
+                <br>
+                <br>
                 <li><a class="channel" href="contact">Contact</a></li>
+                <br>
+                <br>
             </ul>
-        </div>
-        <h1>Hello! <%= username%></h1>
+        </nav>
+        <footer>
+            <div class="sm">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.youtube.com/channel/UCxfAOHhw3eAXNsgu3dVHGkQ"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <hr>
+            <p>&copy; 2023 Oasis. All rights reserved.</p>
+        </footer>
     </body>
 </html>
