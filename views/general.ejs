@@ -2,8 +2,8 @@
 <html lang="en">
     <title>General</title>
     <style>
-        h1 {
-    font-size: 20px;
+h1 {
+    font-size: 30px;
     position: relative;
     left: 10px;
     color: aliceblue;
@@ -96,9 +96,35 @@ body {
 #backButton{
     color: white;
     position: relative;
+    font-size: 20px;
     top: 25px;
     left: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
 }
+#backButton:hover {
+            background-color: rgba(300, 300, 300, 0.2);
+            color: #fff;
+        }
+
+        #backButton:active {
+            animation: click-effect 0.3s ease-in-out;
+        }
+
+        @keyframes click-effect {
+            0% {
+            transform: scale(1);
+            }
+            50% {
+            transform: scale(0.9);
+            }
+            100% {
+            transform: scale(1);
+            }
+        }
     </style>
 
 
@@ -106,6 +132,8 @@ body {
         <div id="topBar">
             <h1 id="title">General</h1>
         </div>
+        <br>
+        <br>
         <link rel="stylesheet">
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
