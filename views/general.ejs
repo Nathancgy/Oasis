@@ -27,16 +27,21 @@ body {
     display: none;
 }
 
-#title {
+.title {
+    font-size: 36px;
     position: relative;
     left: 20px;
+    top: 25px;
+    font-weight: 600;
+    color: aliceblue;
+    text-decoration: none;
 }
 
 #topBar {
     padding: 5px 0; /* Adjust the padding */
     width: 100%;
+    height: 100px;
     background-color: #282828;
-    color: rgb(180, 171, 171);
     position: fixed;
     top: 0;
     left: 0;
@@ -86,8 +91,10 @@ body {
 
 .postLikes{
     color: black;
+    font-weight: 500;
+    font-size: 28px;
     position: relative;
-    left: 570px;
+    left: 400px;
     bottom: 90px;
 }
 .heart{
@@ -130,7 +137,7 @@ body {
 
     <head>
         <div id="topBar">
-            <h1 id="title">General</h1>
+            <a href="intro" class="title">General</a>
         </div>
         <br>
         <br>
