@@ -129,7 +129,7 @@ app.get('/',(req, res) => {
     res.render('intro');
 })
 
-app.get('/intro',async (req, res) => {
+app.get('/intro',(req, res) => {
     res.render('intro');
 })
 
