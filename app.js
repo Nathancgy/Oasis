@@ -178,6 +178,7 @@ app.post('/generalDeletePost', async (req, res) => {
     const deleteId = req.body.postId;
     try {
         await Post.deleteOne({ _id: deleteId });
+        await Like.deleteMany({ postId: deleteId });
         res.redirect('/general');
     } catch (error) {
         console.error('Error during post deletion:', error.message);
@@ -191,6 +192,7 @@ app.post('/academicsDeletePost', async (req, res) => {
     const deleteId = req.body.postId;
     try {
         await Post.deleteOne({ _id: deleteId });
+        await Like.deleteMany({ postId: deleteId });
         res.redirect('/academics');
     } catch (error) {
         console.error('Error during post deletion:', error.message);
