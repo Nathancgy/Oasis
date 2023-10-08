@@ -178,10 +178,7 @@ body {
                     <div>
                         <p>posted on <%= post.postingtime %></p>
                     </div>
-                    <ion-icon class="heart" name="heart-outline" style="font-size: 2rem;"></ion-icon>
-                    <ion-icon class="heart" name="heart" style="font-size: 2rem;"></ion-icon>
-                    <ion-icon class="heart" name="heart-dislike-outline" style="font-size: 2rem;"></ion-icon>
-                    <ion-icon class="heart" name="heart-dislike" style="font-size: 2rem;"></ion-icon>
+                    
                     <% if(post.username === username && username != 'admin1' && username != 'Admin') { %>
                         <form action="/generalDeletePost" method="POST" id="deletePost">
                             <input type="hidden" name="postId" value="<%= post.id %>"> <!-- Assuming each post has an ID -->
