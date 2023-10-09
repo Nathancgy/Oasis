@@ -80,8 +80,18 @@ body {
 
 #addPostBtn {
     position: relative;
+    font-size: 20px;
     left: 800px;
     top: 55px;
+    border: 2px solid #f0f0f0;
+    background-color: rgba(31, 31, 31, 0.806);
+    border-radius: 10px;
+    background: linear-gradient(45deg, #edf909, #1c56f5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* For Firefox */
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
 }
 
 #closeForm {
@@ -143,6 +153,23 @@ body {
     left: 80px;
     bottom: 42px;
 }
+.heart-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.heart-button ion-icon {
+  font-size: 50px;
+  color: red;
+}
+
+.heart-button.liked ion-icon {
+  color: red;
+}
     </style>
 
 
@@ -189,6 +216,10 @@ body {
                     <div>
                         <p>posted on <%= post.postingtime %></p>
                     </div>
+
+                    <button class="heart-button">
+                        <ion-icon name="heart-outline"></ion-icon>
+                    </button>
                     
                     <% if(post.username === username && username != 'admin1' && username != 'Admin') { %>
                         <form action="/generalDeletePost" method="POST" id="deletePost">
@@ -237,6 +268,13 @@ body {
             document.getElementById("closeForm").addEventListener("click", function() {
                 document.getElementById("inputBox").classList.add("hidden")
             })
+
+            const heartButton = document.querySelector('.heart-button');
+            heartButton.addEventListener('click', function() {
+            this.classList.toggle('liked');
+            const iconName = (this.classList.contains('liked')) ? 'heart' : 'heart-outline';
+            this.innerHTML = `<ion-icon name="${iconName}"></ion-icon>`;
+            });
 
         </script>
         <div id="spacing"></div>
