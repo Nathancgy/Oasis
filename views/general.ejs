@@ -132,6 +132,17 @@ body {
             transform: scale(1);
             }
         }
+.Liked {
+    position: relative;
+    left: 550px;
+    bottom: 132px;
+}
+
+.likeButton {
+    position: relative;
+    left: 80px;
+    bottom: 42px;
+}
     </style>
 
 
@@ -196,7 +207,7 @@ body {
                         <input type="hidden" name="postId" value="<%= post.id %>">
                         <input type="hidden" name="username" value="<%= username %>">
                         <input type="hidden" name="forum" value="general">
-                        <button>Like</button>
+                        <button class="likeButton">Like</button>
                     </form>
 
                     <%var likes = 0 %>
@@ -207,6 +218,13 @@ body {
                     <% }) %>
 
                     <h1 class="postLikes">Likes: <%= likes %></h1>
+
+                    <% generalPostsLikes.forEach(like => { %>
+                            <% if(like.username == username) { %>
+                                <h3 class="Liked">Liked!</h3>
+                            <% } %>
+                    <% }) %>
+
                    <% })%>
             </div>
         </div>
