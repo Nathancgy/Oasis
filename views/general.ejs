@@ -284,31 +284,6 @@
                     </div>
             </div>
         </div>
-        <script>
-            document.getElementById("addPostBtn").addEventListener("click", function() {
-                document.getElementById("inputBox").classList.remove("hidden")
-            })
-
-            document.getElementById("closeForm").addEventListener("click", function() {
-                document.getElementById("inputBox").classList.add("hidden")
-            })
-
-
-            // Get all like forms
-            const likeForms = document.querySelectorAll('.like-form');
-
-            likeForms.forEach(form => {
-            const postId = form.querySelector('input[name="postId"]').value;
-            const heartButton = form.querySelector('.heart-button');
-            const likeCount = form.querySelector('.postLikes');
-            const likedMessage = form.querySelector('.Liked');
-            function toggleHeart() {
-  var btn = document.querySelector(".heart-button");
-  btn.classList.toggle("active");
-}
-            });
-
-        </script>
         <div id="spacing"></div>
     </body>
 </html>
