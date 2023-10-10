@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
+require("dotenv").config();
+const connection = require("./db");
 
 const mongoose = require('mongoose');
-const p = 'mongodb+srv://jess:jess@cluster0.cgg9ypb.mongodb.net/?retryWrites=true&w=majority';
-
 const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
@@ -13,6 +13,7 @@ const Post = require('./models/post');
 const Like = require('./models/like');
 const Likestatus = require('./models/likestatus');
 
+connection();
 
 passport.use(new LocalStrategy(
     async (username, password, done) => {
@@ -67,14 +68,6 @@ function checkLoginAuthenticated(req, res, next) {
     }
     res.redirect('/dashboard');
 }
-
-mongoose.connect(p, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => {
-        console.log('Connected to MongoDB');
-    })
-    .catch(error => {
-        console.error('Error connecting to MongoDB:', error);
-    });
 
 app.use(express.static('public'));
 
