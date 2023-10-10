@@ -175,23 +175,6 @@
             color: red;
             font-size: 50px;
         }
-
-        #heartIconOutline{
-            display: inline-block;
-            color: red;
-        }
-#heartIconFilled {
-  display: none;
-  color: red;
-}
-
-.heart-button.active #heartIconOutline {
-  display: none;
-}
-
-.heart-button.active #heartIconFilled {
-  display: inline-block;
-}
 #inputBox {
         width: 300px;
         padding: 40px;
@@ -319,10 +302,18 @@
                         <input type="hidden" name="postId" value="<%= post.id %>">
                         <input type="hidden" name="username" value="<%= username %>">
                         <input type="hidden" name="forum" value="general">
-                        <button class="heart-button" onclick="toggleHeart()">
-                            <ion-icon name="heart-outline" id="heartIconOutline"></ion-icon>
-                            <ion-icon name="heart" id="heartIconFilled"></ion-icon>
-                        </button>
+                            <% var isLiked = false %>
+                            <% generalPostsLikes.forEach(like => { %>
+                                <% if(like.username == username && like.postId == post.id) { %>
+                                    <% isLiked = true %>
+                                <% } %>
+                            <% }) %>
+                            <% if(isLiked) { %>
+                                <button class="heart-button"><ion-icon name="heart"></ion-icon></button>
+                            <% } else {%>
+                                <button class="heart-button"><ion-icon name="heart-outline"></ion-icon></button>
+                            <% } %> 
+                      
                     </form>
                     <div>
                     <%var likes = 0 %>
