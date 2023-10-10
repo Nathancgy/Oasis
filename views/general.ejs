@@ -79,20 +79,30 @@
         }
 
         #addPostBtn {
-            position: relative;
-            font-size: 20px;
-            left: 800px;
-            top: 55px;
-            border: 2px solid #f0f0f0;
-            background-color: rgba(31, 31, 31, 0.806);
-            border-radius: 10px;
-            background: linear-gradient(45deg, #edf909, #1c56f5);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            /* For Firefox */
-            -moz-background-clip: text;
-            -moz-text-fill-color: transparent;
-        }
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        background-color: #f2f2f2;
+        border: none;
+        left: 800px;
+        top:55px;
+        border-radius: 12px;
+        padding: 10px;
+        color: #333;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease-in-out;
+    }
+    
+    /* Adjust icon and text spacing */
+    #addPostBtn ion-icon {
+        margin-right: 5px;
+    }
+    #addPostBtn:hover {
+        background-color: #ccc;
+    }
 
         #closeForm {
             position: relative;
@@ -156,7 +166,7 @@
             display: flex;
             position: relative;
             font-size: 50px;
-            left: 160px;
+            left: 200px;
             bottom: 70px;
             color: red;
         }
@@ -164,19 +174,6 @@
         .heart-button ion-icon {
             color: red;
             font-size: 50px;
-        }
-        .heart-button {
-            display: inline-block;
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            display: flex;
-            position: relative;
-            font-size: 50px;
-            left: 160px;
-            bottom: 70px;
-            color: red;
         }
 
         #heartIconOutline{
@@ -195,6 +192,63 @@
 .heart-button.active #heartIconFilled {
   display: inline-block;
 }
+#inputBox {
+        width: 300px;
+        padding: 40px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        position: absolute;
+    }
+    
+    #closeForm {
+        color: black;
+        left: 280px;
+        bottom: 50px;
+        border: none;
+        padding: none;
+        background-color: transparent;
+        position: relative;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    
+    #postForm {
+        margin-top: 20px;
+    }
+    
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    
+    input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        resize: vertical;
+    }
+    
+    .Btn {
+        background-color: #ec3da0;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    button.Btn:hover {
+        background-color: #a04597;
+    }
+    
+    
+    br {
+        line-height: 12px;
+    }
     </style>
 
 
@@ -211,23 +265,29 @@
     <body>
         <a href="dashboard" id="backButton">Back to Dashboard</a>
         <div>
-            <button id="addPostBtn">Write a post</button>
+            <button id="addPostBtn">
+                <ion-icon name="chatbox-outline"></ion-icon>
+                <span>Write a post</span>
+            </button>
         </div>
         <div id="inputBox" class="hidden">
-            <button id="closeForm">X</button>
             <form action="/general" method="POST" id="postForm">
+                <button id="closeForm">
+                    <ion-icon name="close-circle-outline"></ion-icon>
+                </button>
                 <label for="title">Title:</label>
                 <input type="text" id="title" name="title" required>
                 <br><br>
                 <label for="content">Write sth: </label>
-                <textarea id="content" name="content" required></textarea>
+                <textarea id="content" name="content" required>
+                </textarea>
                 <input type="hidden" value="general" name="group">
                 <!-- Make sure 'username' is defined and passed to the template -->
                 <input type="hidden" value="<%= username %>" name="username">
                 <br><br>
-                <button>Post</button>
+                <button class="Btn">Post</button>
             </form>
-            </div>
+        </div>
         <div class="bg">
             <div id="posts" class="word-box">
                 <% reversedPosts.forEach(post => { %>
@@ -245,12 +305,12 @@
                     <% if(post.username === username && username != 'admin1' && username != 'Admin') { %>
                         <form action="/generalDeletePost" method="POST" id="deletePost">
                             <input type="hidden" name="postId" value="<%= post.id %>"> <!-- Assuming each post has an ID -->
-                            <button>Delete Post</button>
+                            <button class="Btn">Delete Post</button>
                         </form>
                     <% } if(username == 'admin1' || username == 'Admin') {%>
                         <form action="/generalDeletePost" method="POST" id="deletePost">
                         <input type="hidden" name="postId" value="<%= post.id %>"> <!-- Assuming each post has an ID -->
-                        <button>Admin Delete</button>
+                        <button class="Btn">Admin Delete</button>
                     </form> 
                     <% }%>
 
@@ -292,21 +352,6 @@
             document.getElementById("closeForm").addEventListener("click", function() {
                 document.getElementById("inputBox").classList.add("hidden")
             })
-
-
-            // Get all like forms
-            const likeForms = document.querySelectorAll('.like-form');
-
-            likeForms.forEach(form => {
-            const postId = form.querySelector('input[name="postId"]').value;
-            const heartButton = form.querySelector('.heart-button');
-            const likeCount = form.querySelector('.postLikes');
-            const likedMessage = form.querySelector('.Liked');
-            function toggleHeart() {
-  var btn = document.querySelector(".heart-button");
-  btn.classList.toggle("active");
-}
-            });
 
         </script>
         <div id="spacing"></div>
