@@ -114,8 +114,8 @@
             font-weight: 500;
             font-size: 28px;
             position: relative;
-            left: 600px;
-            bottom: 128px;
+            left: 380px;
+            bottom: 135px;
         }
         .heart{
             color: red;
@@ -152,6 +152,11 @@
                     transform: scale(1);
                     }
                 }
+        .Liked {
+            position: relative;
+            left: 550px;
+            bottom: 180px;
+        }
         .heart-button {
             display: inline-block;
             background-color: transparent;
@@ -160,15 +165,15 @@
             padding: 0;
             display: flex;
             position: relative;
-            font-size: 40px;
-            left: 550px;
+            font-size: 50px;
+            left: 330px;
             bottom: 70px;
             color: red;
         }
 
         .heart-button ion-icon {
             color: red;
-            font-size: 40px;
+            font-size: 50px;
         }
 #inputBox {
         width: 300px;
@@ -319,11 +324,11 @@
 
                     <h1 class="postLikes"><%= likes %></h1>
 
-                    <!--<% generalPostsLikes.forEach(like => { %>
+                    <% generalPostsLikes.forEach(like => { %>
                             <% if(like.username == username && like.postId == post.id) { %>
                                 <h3 class="Liked">Liked!</h3>
                             <% } %>
-                    <% }) %>-->
+                    <% }) %>
 
                    <% })%>
                     </div>
