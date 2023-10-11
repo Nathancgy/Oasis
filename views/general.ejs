@@ -114,8 +114,8 @@
             font-weight: 500;
             font-size: 28px;
             position: relative;
-            left: 380px;
-            bottom: 135px;
+            left: 400px;
+            bottom: 120px;
         }
         .heart{
             color: red;
@@ -155,7 +155,7 @@
         .Liked {
             position: relative;
             left: 550px;
-            bottom: 180px;
+            bottom: 160px;
         }
         .heart-button {
             display: inline-block;
@@ -166,7 +166,7 @@
             display: flex;
             position: relative;
             font-size: 50px;
-            left: 330px;
+            left: 200px;
             bottom: 70px;
             color: red;
         }
@@ -206,6 +206,7 @@
         margin-bottom: 5px;
     }
     
+    input[type="text"],
     textarea {
         width: 100%;
         padding: 5px;
@@ -261,7 +262,8 @@
                 <input type="text" id="title" name="title" required>
                 <br><br>
                 <label for="content">Write sth: </label>
-                <textarea type="text" id="content" name="content" required></textarea>
+                <textarea id="content" name="content" required>
+                </textarea>
                 <input type="hidden" value="general" name="group">
                 <!-- Make sure 'username' is defined and passed to the template -->
                 <input type="hidden" value="<%= username %>" name="username">
@@ -282,7 +284,6 @@
                     <div>
                         <p>posted on <%= post.postingtime %></p>
                     </div>
-                    <br>
                     
                     <% if(post.username === username && username != 'admin1' && username != 'Admin') { %>
                         <form action="/generalDeletePost" method="POST" id="deletePost">
@@ -322,7 +323,7 @@
                         <%  } %>
                     <% }) %>
 
-                    <h1 class="postLikes"><%= likes %></h1>
+                    <h1 class="postLikes">Likes: <%= likes %></h1>
 
                     <% generalPostsLikes.forEach(like => { %>
                             <% if(like.username == username && like.postId == post.id) { %>
