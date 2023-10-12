@@ -211,6 +211,7 @@
     
     .Btn {
         background-color: #ec3da0;
+        position: relative;
         color: #fff;
         border: none;
         border-radius: 5px;
@@ -231,6 +232,8 @@
 .switch {
   position: relative;
   display: inline-block;
+  right: 150px;
+  top: 8px;
   width: 60px;
   height: 34px;
 }
@@ -294,13 +297,29 @@ input:checked + .slider:before {
     position: relative;
     left: 70px;
     bottom: 18px;
+    white-space: nowrap;
+    font-size: 20px;
+    display: inline-block;
 }
-
 .switchForm {
     position: relative;
     left: 150px;
     top: 80px;
 }
+.BtnP{
+    bottom: 70px;
+    background-color: #ec3da0;
+        position: relative;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        font-size: 16px;
+        cursor: pointer;
+}
+button.BtnP:hover {
+        background-color: #a04597;
+    }
     </style>
 
 
@@ -335,9 +354,16 @@ input:checked + .slider:before {
                 <input type="hidden" value="general" name="group">
                 <!-- Make sure 'username' is defined and passed to the template -->
                 <input type="hidden" value="<%= username %>" name="username">
-                <div class="switchForm"><label class="switch"><input type="checkbox" name = "postAnonymous"><span class="slider round"><p class="posta">post anonymous?</p></span></label></div>
+                <div class="switchForm">
+                    <label class="switch">
+                        <input type="checkbox" name = "postAnonymous">
+                        <span class="slider round">
+                            <p class="posta">Post anonymously</p>
+                        </span>
+                    </label>
+                </div>
                 <br><br>
-                <button class="Btn">Post</button>
+                <button class="BtnP">Post</button>
             </form>
         </div>
         <div class="bg">
