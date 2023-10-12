@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        @import url( 'https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+body, h1, p {
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins',sans-serif;
+  }
+body {
+    
+    background: url('intro.jpg')no-repeat;
+    background-position: top;
+    background-size: cover;
+    background-attachment: fixed;
+}
+h1 {
+    text-align: center;
+    color: #358597
+}
+header {
+    background-color: rgba(51, 51, 51, 0.2);
+    padding: 20px;
+    color: #F4A896;
+}
+nav {
+    background-color: rgba(160, 160, 160, 0.2);
+    padding: 10px;
+    color: #F4A896;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color:#F4A896;
+}
+nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+    color:#F4A896;
+}
+.channel{
+    color:#F4A896;
+    font-size: 20px;
+}
+section{
+    background-color: rgba(120, 120, 120, 0.2);
+    padding: 20px;
+    text-align: left;
+    color: #F4A896;
+}
+footer{
+    background-color: rgba(51, 51, 51, 0.2);
+    padding: 20px;
+    color: #F4A896;
+    text-align: center;
+}
+.sm a{
+    display: inline-flex;
+    text-decoration: none;
+    font-size: 36px;
+    width: 60px;
+    height: 60px;
+    color: #f0f0f0;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0 7px;
+  }
+  .sm a::before{
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 25%;
+    z-index: -1;
+    transition: transform .3s ease-in;
+  }
+  .sm a:nth-child(1)::before{
+    background: #38529a;
+  }
+  .sm a:nth-child(2)::before{
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+  }
+  .sm a:nth-child(3)::before{
+    background: #1c96e9;
+  }
+  .sm a:nth-child(4)::before{
+    background: #f70000;
+  }
+  .sm a:nth-child(5)::before{
+    background: #046596;
+  }
+  .sm a:hover::before{
+    transform: scale(0);
+  }
+  .sm a i{
+    transition: transform .3s ease-in;
+  }
+  .sm a:nth-child(1):hover i{
+    background: #38529a;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -ms-background-clip: text;
+    -ms-text-fill-color: transparent;
+    -o-background-clip: text;
+    -o-text-fill-color: transparent;
+    transform: scale(1.5);
+  }
+  .sm a:nth-child(2):hover i{
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -ms-background-clip: text;
+    -ms-text-fill-color: transparent;
+    -o-background-clip: text;
+    -o-text-fill-color: transparent;
+    transform: scale(1.5);
+  }
+  .sm a:nth-child(3):hover i{
+    background: #1c96e9;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -ms-background-clip: text;
+    -ms-text-fill-color: transparent;
+    -o-background-clip: text;
+    -o-text-fill-color: transparent;
+    transform: scale(1.5);
+  }
+  .sm a:nth-child(4):hover i{
+    background: #f70000;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -ms-background-clip: text;
+    -ms-text-fill-color: transparent;
+    -o-background-clip: text;
+    -o-text-fill-color: transparent;
+    transform: scale(1.5);
+  }
+  .sm a:nth-child(5):hover i{
+    background: #046596;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -ms-background-clip: text;
+    -ms-text-fill-color: transparent;
+    -o-background-clip: text;
+    -o-text-fill-color: transparent;
+    transform: scale(1.5);
+  }
+  p{
+    color:#F4A896;
+    text-align: left;
+  }
+  h2{
+    text-align: center;
+    color:#358597;
+  }
+  .index {
+    display: flex;
+    align-items: center;
+  }
+
+  .index .icon-container {
+    margin-right: 10px;
+  }
+
+  .channels {
+    display: flex;
+    align-items: center;
+  }
+
+  .gradient-text {
+    background: linear-gradient(to right, #F4A896, #04a2f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* For Firefox */
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }
+
+
+  .channel {
+    margin-right: 15px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    -webkit-text-stroke: 0.5px goldenrod; /* For Chrome, Safari, and Opera */
+    text-stroke: 0.5px goldenrod; /* For other browsers */
+  }
+
+  .channel:hover {
+    background-color: rgba(300, 300, 300, 0.2);
+    color: #fff;
+  }
+
+  .channel:active {
+    animation: click-effect 0.3s ease-in-out;
+  }
+
+  @keyframes click-effect {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .webicon {
+    display: inline-block;
+    text-decoration: none;
+    margin-right: 15px;
+    color:#F4A896;
+    font-size: 2rem;
+    font-weight: bold;
+    -webkit-text-stroke: 0.5px goldenrod; /* For Chrome, Safari, and Opera */
+    text-stroke: 0.5px goldenrod; /* For other browsers */
+  }
+  li{
+    list-style: none;
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+}
+
+.block {
+    width: 600px;
+    height: 150px;
+    margin: 10px;
+}
+.icon{
+  display: inline-block;
+  border: 2px solid #358597;
+  border-radius: 10px;
+  padding: 7px;
+  background-color: #358597;
+}
+h3{
+  background: linear-gradient(to left, #f07f66, #57d9f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* For Firefox */
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -webkit-text-stroke: 0.3px goldenrod;
+    text-stroke: 0.3px goldenrod;
+}
+    </style>
+    <head>
+        <title>Contact</title>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0">
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script src="https://kit.fontawesome.com/8394235f03.js" crossorigin="anonymous"></script>
+    </head>
+    <script>
+        // JavaScript code to trigger the animation after page load
+        document.addEventListener("DOMContentLoaded", function(event) {
+          var channels = document.getElementsByClassName("channel");
+          for (var i = 0; i < channels.length; i++) {
+            channels[i].style.animationDelay = (i * 0.2) + "s";
+          }
+        });
+      </script>
+    <body>
+        <nav class="index">
+            <div class="icon-container">
+                <ion-icon name="chatbubbles-outline" style="font-size: 5rem;"></ion-icon>
+            </div>
+            <li><a class="webicon" href="intro">Oasis</a></li>
+            <ul class="gradient-text">
+                <li><a class="channel" href="login">Login</a></li>
+                <li><a class="channel" href="register">Register</a></li>
+                <li><a class="channel" href="announcement">Announcement</a></li>
+                <li><a class="channel" href="contact">Contact</a></li>
+            </ul>
+        </nav>
+        <header>
+            <h1>Welcome to the Oasis!</h1>
+            <hr>
+            <p>Welcome to our forum website, the ultimate platform for engaging discussions and connecting with like-minded individuals. Whether you’re seeking expert advice, sharing your experiences, or simply looking to expand your knowledge, our forum offers a vibrant community where you can ask questions, contribute insights, and immerse yourself in a diverse range of topics. Join us and be part of the conversation today!</p>
+        </header>
+        <section>
+            <h2>About Us</h2>
+            <hr>
+            <p>At Oasis, we believe in the power of connections and conversations. We have created a vibrant online forum where individuals from all walks of life can come together to discuss, share, and learn. Whether you're seeking knowledge, seeking support, or simply looking to engage in meaningful conversations, Oasis is here to provide a safe and welcoming space for you.</p>
+            <div class="container">
+                <div class="block">
+                    <div class="icon">
+                        <ion-icon name="people-outline" style="font-size: 2rem;"></ion-icon>
+                    </div>
+                    <h3>Diverse Community</h3>
+                    <p>Celebrating diversity, embracing perspectives, valuing everyone’s voice</p>
+                </div>
+                <div class="block">
+                    <div class="icon">
+                        <ion-icon name="megaphone-outline" style="font-size: 2rem;"></ion-icon>
+                    </div>
+                    <h3>Engaging Discussions</h3>
+                    <p>Topics span tech, arts, sports, current events; engage with like-minded members</p>
+                </div>
+                <div class="block">
+                    <div class="icon">
+                        <ion-icon name="construct-outline" style="font-size: 2rem;"></ion-icon>
+                    </div>
+                    <h3>Constructive Contributions</h3>
+                    <p>Contribute insight, share experiences, foster learning in constructive discussions</p>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="container">
+                <div class="block">
+                    <div class="icon">
+                        <ion-icon name="shield-half-outline" style="font-size: 2rem;"></ion-icon>
+                    </div>
+                    <h3>No Spam or Self-Promotion</h3>
+                    <p>Avoid spam, excessive self-promo; share responsibly in designated areas</p>
+                </div>
+                <div class="block">
+                    <div class="icon">
+                        <ion-icon name="lock-closed-outline" style="font-size: 2rem;"></ion-icon>
+                    </div>
+                    <h3>Privacy and Confidentiality</h3>
+                    <p>Respect privacy, obtain consent before sharing personal or confidential content</p>
+                </div>
+                <div class="block">
+                    <div class="icon">
+                        <ion-icon name="alert-circle-outline" style="font-size: 2rem;"></ion-icon>
+                    </div>
+                    <h3>Reporting Issues</h3>
+                    <p>Report guideline violations or issues to moderators for a safe community</p>
+                </div>
+            </div>
+        </section>
+        <br>
+        <br>
+        <br>
+        <footer>
+            <div class="sm">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.youtube.com/channel/UCxfAOHhw3eAXNsgu3dVHGkQ"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <hr>
+            <p>&copy; 2023 Oasis. All rights reserved.</p>
+        </footer>
+    </body>
+</html>
