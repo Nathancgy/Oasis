@@ -347,8 +347,7 @@ input:checked + .slider:before {
                     <div class="posts">
                     <h3><%= post.title %></h3>
                     <p><%= post.content %></p>
-                    
-                    <% if (post.postAnonymous == false || post.postAnonymous == null) { %>
+                    <% if (post.postAnonymous === 'false' | post.postAnonymous == null ) { %>
                         <p>posted by <%= post.username %></p>
                     <% } %>
                     
