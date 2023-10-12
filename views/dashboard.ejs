@@ -51,19 +51,30 @@
 
 
         .channel {
-            margin-right: 15px;
-            color: #fcb2c9;
-            font-size: 1.5rem;
-            font-weight: 600;
             text-decoration: none;
             padding: 5px 10px;
             border-radius: 5px;
             transition: background-color 0.3s, color 0.3s;
-            -webkit-text-stroke: 0.5px goldenrod; /* For Chrome, Safari, and Opera */
-            text-stroke: 0.5px goldenrod; /* For other browsers */
+            font-weight: 600;
+            background: linear-gradient(to left, #f07f66, #57d9f6);
+            font-size: 30px;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* For Firefox */
+            -moz-background-clip: text;
+            -moz-text-fill-color: transparent;
+            -webkit-text-stroke: 0.3px goldenrod;
+            text-stroke: 0.3px goldenrod;
         }
 
         .channel:hover {
+            background: linear-gradient(to left, #f07f66, #57d9f6);
+            -webkit-background-clip: unset;
+            -moz-background-clip: unset;
+            background-clip: unset;
+            -webkit-text-fill-color: initial;
+            -moz-text-fill-color: initial;
+            text-fill-color: initial;
             background-color: rgba(300, 300, 300, 0.2);
             color: #fff;
         }
@@ -109,12 +120,6 @@
         }
         h{
             margin-left: 10px;
-            background: linear-gradient(45deg, #edf909, #1c56f5);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            /* For Firefox */
-            -moz-background-clip: text;
-            -moz-text-fill-color: transparent;
             font-size:36px;
             font-weight: 600;
             -webkit-text-stroke: 0.5px goldenrod; /* For Chrome, Safari, and Opera */
@@ -245,6 +250,36 @@
             flex-grow: 1;
         }
         p{text-align: left;}
+
+        .index {
+            display: flex;
+            align-items: center;
+        }
+
+        .index .icon-container {
+            margin-right: 10px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #F4A896, #04a2f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* For Firefox */
+            -moz-background-clip: text;
+            -moz-text-fill-color: transparent;
+        }
+        .block {
+    width: 600px;
+    height: 150px;
+    margin: 10px;
+}
+.icon{
+  display: inline-block;
+  border: 2px solid #358597;
+  border-radius: 10px;
+  padding: 7px;
+  background-color: #358597;
+}
     </style>
 
     <head>
@@ -277,20 +312,40 @@
         <br>
         <br>
         <nav>
-            <ul class="gradient-text">
-                <li><a class="channel" href="general">General</a></li>
-                <br>
-                <br>
-                <li><a class="channel" href="academics">Academics</a></li>
-                <br>
-                <br>
-                <li><a class="channel" href="announcement">Announcement</a></li>
-                <br>
-                <br>
-                <li><a class="channel" href="contact">Contact</a></li>
-                <br>
-                <br>
-            </ul>
+            <div class="container">
+                <div class="block">
+                    <div class="icon">
+                        <ion-icon name="person-circle-outline" style="font-size: 4rem;"></ion-icon>
+                    </div>
+                    <br>
+                    <br>
+                    <li><a class="channel" href="general">General</a></li>
+                </div>
+                <div class="block">
+                    <div class="icon">
+                        <ion-icon name="person-circle-outline" style="font-size: 4rem;"></ion-icon>
+                    </div>
+                    <br>
+                    <br>
+                    <li><a class="channel" href="academics">Academics</a></li>
+                </div>
+                <div class="block">
+                    <div class="icon">
+                        <ion-icon name="person-circle-outline" style="font-size: 4rem;"></ion-icon>
+                    </div>
+                    <br>
+                    <br>
+                    <li><a class="channel" href="announcement">Announcement</a></li>
+                </div>
+                <div class="block">
+                    <div class="icon">
+                        <ion-icon name="person-circle-outline" style="font-size: 4rem;"></ion-icon>
+                    </div>
+                    <br>
+                    <br>
+                    <li><a class="channel" href="contact">Contact</a></li>
+                </div>
+            </div>
         </nav>
         <footer>
             <div class="sm">
