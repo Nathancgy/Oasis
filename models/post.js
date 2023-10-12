@@ -21,6 +21,9 @@ const postSchema = new Schema ({
             return value.toLocaleString([], { dateStyle: 'short', timeStyle: 'short' });
         },
         immutable: true,
+    },
+    postAnonymous: {
+        type: String
     }
 })
 

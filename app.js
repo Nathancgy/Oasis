@@ -147,14 +147,13 @@ app.get('/academics', checkAuthenticated, async (req, res) => {
 
 
 app.post('/general', async (req, res) => {
-    const post = new Post(req.body);
+    var anonymous = (req.body.postAnonymous)
+    if (anonymous) {anonymous = true} else {anonymous = false}
+    const post = new Post({title: req.body.title, content: req.body.content, group: req.body.group, username: req.body.username, postAnonymous: anonymous});
+    console.log(post);
     await post.save().then((result) => {
         console.log('Post saved')
         res.redirect('/general')
-    })
-    const likestatus = new Likestatus({title: req.body.title, username: req.body.username, status: false})
-    await likestatus.save().then((result) => {
-        console.log('likestatus saved');
     })
 });
 
