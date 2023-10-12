@@ -87,7 +87,6 @@ app.get('/register', (req, res) => {
 })
 
 app.post('/register', async (req, res) => {
-    console.log(req.body);  // Log the received data
 
     try {
         if (!req.body.username || !req.body.password) {
@@ -108,7 +107,6 @@ app.post('/register', async (req, res) => {
 
 app.get('/login', (req, res) => {
     const ip_address = req.ip || req.connection.remoteAddress;
-    console.log(ip_address);
     if (req.isAuthenticated()) {
         return res.redirect('/dashboard');
     }
@@ -174,7 +172,6 @@ app.post('/academics', async (req, res) => {
 
 app.post('/generalDeletePost', async (req, res) => {
     console.log('Post delete invoked' )
-    console.log(req.body.postId)
     const deleteId = req.body.postId;
     try {
         await Post.deleteOne({ _id: deleteId });
