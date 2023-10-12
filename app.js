@@ -50,8 +50,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.set('view engine', 'ejs');
-app.listen(3000, '0.0.0.0', () => {
-    console.log('Server is running on port 3000');
+app.listen(80, '0.0.0.0', () => {
+    console.log('Server is running on port 80');
 });
 
 function checkAuthenticated(req, res, next) {
