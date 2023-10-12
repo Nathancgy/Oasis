@@ -131,6 +131,10 @@ app.get('/intro',(req, res) => {
     res.render('intro');
 })
 
+app.get('/contact',(req, res) => {
+    res.render('contact');
+})
+
 app.get('/general', checkAuthenticated, async (req, res) => {
     const generalPosts = await Post.find({ group: 'general' });
     const reversedPosts = generalPosts.reverse();
@@ -214,10 +218,6 @@ app.post('/likeAcademicsPost', async (req, res) => {
         res.redirect('/academics');
     })
     
-})
-
-app.get('/contact',(req, res) => {
-    res.render('contact');
 })
 
 app.use((req, res, next) => {
