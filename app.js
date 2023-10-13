@@ -50,9 +50,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.set('view engine', 'ejs');
-app.listen(80, '0.0.0.0', () => {
-    console.log("server is running on http");
-});
 
 function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
