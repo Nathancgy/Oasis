@@ -2,6 +2,9 @@
 <html lang="en">
     <title>General</title>
     <style>
+        html{
+            width: 100%;
+        }
         h1 {
             font-size: 30px;
             position: relative;
@@ -13,8 +16,10 @@
             margin: 0;
             margin-top: 50px;
             padding: 0;
-            width: fit-content;
-            height: 170%;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: scroll;
             position: relative;
             padding: 0;
             font-family: 'poppins',sans-serif;
@@ -320,6 +325,114 @@ input:checked + .slider:before {
 button.BtnP:hover {
         background-color: #a04597;
     }
+    footer{
+    background-color: rgba(51, 51, 51, 0.2);
+    padding: 20px;
+    color: #F4A896;
+    text-align: center;
+}
+.sm a{
+    display: inline-flex;
+    text-decoration: none;
+    font-size: 36px;
+    width: 60px;
+    height: 60px;
+    color: #f0f0f0;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0 7px;
+  }
+  .sm a::before{
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 25%;
+    z-index: -1;
+    transition: transform .3s ease-in;
+  }
+  .sm a:nth-child(1)::before{
+    background: #38529a;
+  }
+  .sm a:nth-child(2)::before{
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+  }
+  .sm a:nth-child(3)::before{
+    background: #1c96e9;
+  }
+  .sm a:nth-child(4)::before{
+    background: #f70000;
+  }
+  .sm a:nth-child(5)::before{
+    background: #046596;
+  }
+  .sm a:hover::before{
+    transform: scale(0);
+  }
+  .sm a i{
+    transition: transform .3s ease-in;
+  }
+  .sm a:nth-child(1):hover i{
+    background: #38529a;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -ms-background-clip: text;
+    -ms-text-fill-color: transparent;
+    -o-background-clip: text;
+    -o-text-fill-color: transparent;
+    transform: scale(1.5);
+  }
+  .sm a:nth-child(2):hover i{
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -ms-background-clip: text;
+    -ms-text-fill-color: transparent;
+    -o-background-clip: text;
+    -o-text-fill-color: transparent;
+    transform: scale(1.5);
+  }
+  .sm a:nth-child(3):hover i{
+    background: #1c96e9;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -ms-background-clip: text;
+    -ms-text-fill-color: transparent;
+    -o-background-clip: text;
+    -o-text-fill-color: transparent;
+    transform: scale(1.5);
+  }
+  .sm a:nth-child(4):hover i{
+    background: #f70000;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -ms-background-clip: text;
+    -ms-text-fill-color: transparent;
+    -o-background-clip: text;
+    -o-text-fill-color: transparent;
+    transform: scale(1.5);
+  }
+  .sm a:nth-child(5):hover i{
+    background: #046596;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -ms-background-clip: text;
+    -ms-text-fill-color: transparent;
+    -o-background-clip: text;
+    -o-text-fill-color: transparent;
+    transform: scale(1.5);
+  }
     </style>
 
 
@@ -332,6 +445,7 @@ button.BtnP:hover {
         <link rel="stylesheet">
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script src="https://kit.fontawesome.com/8394235f03.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <a href="dashboard" id="backButton">Back to Dashboard</a>
@@ -444,6 +558,17 @@ button.BtnP:hover {
 
         </script>
         <div id="spacing"></div>
-        <!--Test function-->
+        <br>
+        <footer>
+            <div class="sm">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.youtube.com/channel/UCxfAOHhw3eAXNsgu3dVHGkQ"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <hr>
+            <p>&copy; 2023 Oasis. All rights reserved.</p>
+        </footer>
     </body>
 </html>
