@@ -136,6 +136,10 @@ app.get('/contact',(req, res) => {
     res.render('contact');
 })
 
+app.get('/test', (req, res) => {
+    res.render('test');
+})
+
 app.get('/general', checkAuthenticated, async (req, res) => {
     const generalPosts = await Post.find({ group: 'general' });
     const reversedPosts = generalPosts.reverse();
