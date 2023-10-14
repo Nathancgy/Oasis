@@ -14,6 +14,7 @@ const Like = require('./models/like');
 const Likestatus = require('./models/likestatus');
 const Comment = require('./models/comment');
 
+const bodyParser = require('body-parser');
 
 passport.use(new LocalStrategy(
     async (username, password, done) => {
@@ -139,6 +140,14 @@ app.get('/contact',(req, res) => {
 app.get('/test', (req, res) => {
     res.render('test');
 })
+
+app.post('/submit', (req, res) => {
+    const name = req.body.name;
+    const email = req.body.email;
+    console.log(name, email);
+    res.send('Form submitted successfully!');
+
+});
 
 app.get('/general', checkAuthenticated, async (req, res) => {
     const generalPosts = await Post.find({ group: 'general' });
