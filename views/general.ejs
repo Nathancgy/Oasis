@@ -446,6 +446,7 @@ button.BtnP:hover {
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
         <script src="https://kit.fontawesome.com/8394235f03.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body>
         <a href="dashboard" id="backButton">Back to Dashboard</a>
@@ -456,7 +457,7 @@ button.BtnP:hover {
             </button>
         </div>
         <div id="inputBox" class="hidden">
-            <form action="/general" method="POST" id="postForm">
+            <form id="postForm">
                 <button id="closeForm">
                     <ion-icon name="close-circle-outline"></ion-icon>
                 </button>
@@ -472,13 +473,46 @@ button.BtnP:hover {
                     <label class="switch">
                         <input type="checkbox" name = "postAnonymous">
                         <span class="slider round">
-                            <p class="posta">Post anonymously</p>
+                            <h6 class="posta">Post anonymously</p>
                         </span>
                     </label>
                 </div>
                 <br><br>
                 <button class="BtnP">Post</button>
             </form>
+            <script>
+                jQuery(document).ready(function() {
+                    jQuery('#postForm').submit((function(event) {
+                        event.preventDefault();
+
+                        var form = jQuery(this);
+                        var formData = form.serialize();
+
+                        var submitButton = form.find('button[type="submit"]');
+                        submitButton.prop('disabled', true);
+
+                        form.append('<p>Loading...</p>');
+
+                        jQuery.ajax({
+                            type: 'POST',
+                            url: '/general',
+                            data: formData,
+                            success: function(response) {
+                                form.append('<p>Form submitted successfully!</p>');
+                                form.trigger('reset');
+                                submitButton.prop('disabled', false);
+                            },
+                            error: function(error) {
+                                form.append('<p>An error');
+                                submitButton.prop('disabled', false);
+                            },
+                            complete: function() {
+                                form.find('p').remove();
+                            }
+                        })
+                    }))
+                })
+            </script>
         </div>
         <div class="bg">
             <div id="posts" class="word-box">
@@ -511,7 +545,7 @@ button.BtnP:hover {
 
                 </div>
 
-                    <form action="/likeGeneralPost" method="POST" id="likePost" class="like-form">
+                    <form id="likePost" class="like-form" method="POST" action="/likeGeneralPost">
                         <input type="hidden" name="postId" value="<%= post.id %>">
                         <input type="hidden" name="username" value="<%= username %>">
                         <input type="hidden" name="forum" value="general">
@@ -528,6 +562,9 @@ button.BtnP:hover {
                             <% } %> 
                       
                     </form>
+
+                    
+
                     <form action="/commentGeneralPost" method="POST" id="commentPost" class="comment-form">
                         <input type="hidden" name="postId" value="<%= post.id %>">
                         <input type="text" name="content">
@@ -551,6 +588,7 @@ button.BtnP:hover {
                     <% }) %>-->
 
                    <% })%>
+                   
                     </div>
             </div>
         </div>

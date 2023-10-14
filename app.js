@@ -171,7 +171,7 @@ app.post('/general', async (req, res) => {
     console.log(post);
     await post.save().then((result) => {
         console.log('Post saved')
-        res.redirect('/general')
+        res.send('Form submitted successfully!');
     })
 });
 
@@ -218,6 +218,7 @@ app.post('/likeGeneralPost', async (req, res) => {
 
     await Like.deleteMany({ postId: req.body.postId, username: req.body.username })
     const like = new Like(req.body);
+    console.log('likED')
     like.save().then((result) => {
         res.redirect('/general');
     })
