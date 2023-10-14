@@ -12,6 +12,7 @@ const User = require('./models/user');
 const Post = require('./models/post');
 const Like = require('./models/like');
 const Likestatus = require('./models/likestatus');
+const Comment = require('./models/comment');
 
 
 passport.use(new LocalStrategy(
