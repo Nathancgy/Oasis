@@ -438,6 +438,13 @@ button.BtnP:hover {
     position: relative;
     left: 200px;
   }
+
+  #commentSection {
+    width: 300px;
+    height: 320px;
+    background-color: white;
+  }
+
     </style>
 
 
@@ -533,16 +540,6 @@ button.BtnP:hover {
                             <% } %> 
                       
                     </form>
-                    <button id="commentBtn"><ion-icon name="create-outline"></ion-icon></button>
-                    <div id="commentSection" class="hidden">
-                    <div id="commentBox" class="hidden">
-                      <form action="/commentGeneralPost" method="POST" id="commentPost" class="comment-form">
-                          <input type="hidden" name="postId" value="<%= post.id %>">
-                          <input type="text" name="content">
-                          <input type="hidden" name="username" value="<%= username %>">
-                          <button>post</button>
-                      </form>
-                    </div>
                     </div>
                     <div>
                     <%var likes = 0 %>
@@ -553,6 +550,17 @@ button.BtnP:hover {
                     <% }) %>
 
                     <h1 class="postLikes"><%= likes %></h1>
+
+                    <button id="commentBtn"><ion-icon name="create-outline"></ion-icon></button>
+                    <button id="closeCommentForm">X</button>
+                    <div id="commentSection" class="hidden">
+                      <form action="/commentGeneralPost" method="POST" id="commentPost" class="comment-form">
+                          <input type="hidden" name="postId" value="<%= post.id %>">
+                          <input type="text" name="content" id="content">
+                          <input type="hidden" name="username" value="<%= username %>">
+                          <button>post</button>
+                      </form>
+                    </div>
 
                     <!--<% generalPostsLikes.forEach(like => { %>
                             <% if(like.username == username && like.postId == post.id) { %>
@@ -574,7 +582,11 @@ button.BtnP:hover {
             })
 
             document.getElementById("commentBtn").addEventListener("click", function() {
-                document.getElementById("commentBox").classList.remove("hidden")
+                document.getElementById("commentSection").classList.remove("hidden")
+            })
+
+            document.getElementById("closeCommentForm").addEventListener("click", function() {
+                document.getElementById("commentSection").classList.add("hidden")
             })
 
 
