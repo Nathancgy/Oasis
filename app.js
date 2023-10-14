@@ -171,7 +171,7 @@ app.post('/general', async (req, res) => {
     console.log(post);
     await post.save().then((result) => {
         console.log('Post saved')
-        res.send('Form submitted successfully!');
+        res.redirect('/general')
     })
 });
 
