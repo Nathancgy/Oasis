@@ -510,6 +510,7 @@ button.BtnP:hover {
                     <% }%>
 
                 </div>
+
                     <form action="/likeGeneralPost" method="POST" id="likePost" class="like-form">
                         <input type="hidden" name="postId" value="<%= post.id %>">
                         <input type="hidden" name="username" value="<%= username %>">
@@ -526,6 +527,12 @@ button.BtnP:hover {
                                 <button class="heart-button"><ion-icon name="heart-outline"></ion-icon></button>
                             <% } %> 
                       
+                    </form>
+                    <form action="/commentGeneralPost" method="POST" id="commentPost" class="comment-form">
+                        <input type="hidden" name="postId" value="<%= post.id %>">
+                        <input type="text" name="content">
+                        <input type="hidden" name="username" value="<%= username %>">
+                        <button>post</button>
                     </form>
                     <div>
                     <%var likes = 0 %>
