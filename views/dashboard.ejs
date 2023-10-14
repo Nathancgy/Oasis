@@ -3,9 +3,15 @@
     <style>
         @import url( 'https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
         h1{
-            font-size: 20px;
+            font-size: 28px;
             position: fixed;
-            left: 10px;
+            background: linear-gradient(to left, #04a2f1, #F4A896);
+            left: 50px;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* For Firefox */
+            -moz-background-clip: text;
+            -moz-text-fill-color: transparent;
         }
         body, h1, p {
             margin: 0;
@@ -24,22 +30,19 @@
             position: relative;
             top: 80px;
         }
-        #topBar{
-            padding: 20px 0; /* Adjust the padding */
+        #topBar {
+            padding: 5px 0; /* Adjust the padding */
             width: 100%;
             height: 50px;
-            background: linear-gradient(45deg, rgb(30, 83, 245), rgb(235, 11, 247));
-            color: #F4A896;
+            background-color: #282828;
             position: fixed;
             top: 0;
             left: 0;
             z-index: 2;
-            display: flex;
-            justify-content: left;
         }
         .channels {
             display: flex;
-            align-items: left;
+            align-items: center;
         }
 
         .gradient-text {
@@ -50,6 +53,8 @@
 
         .channel {
             text-decoration: none;
+            position: relative;
+            left: 40px;
             padding: 5px 10px;
             border-radius: 5px;
             transition: background-color 0.3s, color 0.3s;
@@ -68,11 +73,11 @@
             -webkit-background-clip: unset;
             -moz-background-clip: unset;
             background-clip: unset;
-            -webkit-text-fill-color: rgb(11, 91, 240);
+            -webkit-text-fill-color: aliceblue;
             -webkit-text-stroke: #f76917;
-            -moz-text-fill-color: rgb(11, 91, 240);
+            -moz-text-fill-color: aliceblue;
             -moz-text-stroke: #f76917;
-            text-fill-color: rgb(11, 91, 240);
+            text-fill-color: aliceblue;
             text-stroke: #f76917;
             background-color: rgba(300, 300, 300, 0.2);
             color: #fff;
@@ -93,17 +98,6 @@
             transform: scale(1);
             }
         }
-
-        .webicon {
-            display: inline-block;
-            position: relative;
-            text-decoration: none;
-            left: 24px;
-            color:#F4A896;
-            font-size: 34px;
-            font-weight: bold;
-            bottom: -9px;
-        }
         li{
             list-style: none;
         }
@@ -121,11 +115,6 @@
             font-size:36px;
             font-weight: 600;
         }
-        h1{
-            color: #F4A896;
-            font-size: 28px;
-            font-weight: 600;
-        }
         .container {
             display: flex;
             justify-content: center;
@@ -135,10 +124,13 @@
             left: 15px;
             margin-top: -16px;
         }
-        footer{
+        footer {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background-color: rgba(51, 51, 51, 0.2);
-            padding: 20px;
-            flex-shrink: 0;
+            padding: 30px;
             color: #F4A896;
             text-align: center;
         }
@@ -267,37 +259,47 @@
             -moz-text-fill-color: transparent;
         }
         .block {
-            width: 600px;
+            width: 500px;
             height: 150px;
             margin: 10px;
         }
-        .icon{
-            display: inline-block;
-            color: #eb9e66;
-            border: 2px solid transparent;
-            border-radius: 10px;
-            padding: 7px;
-            transition: transform 0.2s ease-in-out;
-        }
-        .icon-1 {
-        background-color: #5166dd;
-        }
+        .icon {
+    display: inline-block;
+    position: relative;
+    background-color: rgba(120, 120, 120, 0.5);
+    border: 0px solid transparent;
+    border-radius: 10px;
+    padding: 8px;
+    font-weight: 50;
+    color:#5cb7e5;
+    transition: transform 0.2s ease-in-out;
+    left: 50px;
+}
 
-        .icon-2 {
-        background-color: #5166dd;
-        }
-
-        .icon-3 {
-        background-color: #5166dd;
-        }
-
-        .icon-4 {
-        background-color: #5166dd;
-        }
-
+.iki {
+    background: linear-gradient(45deg, #F4A896, #04a2f1);
+    -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* For Firefox */
+            -moz-background-clip: text;
+            -moz-text-fill-color: transparent;
+}
         .lift {
         transform: translateY(-15px);
         transition: transform 0.2s ease-in-out;
+        }
+        .grad{
+            background: linear-gradient(-45deg, #F4A896, #04a2f1);
+            color:aliceblue;
+        }
+        .title {
+            font-size: 20px;
+            position: relative;
+            left: 20px;
+            top: 13px;
+            font-weight: 600;
+            color: aliceblue;
+            text-decoration: none;
         }
     </style>
 
@@ -322,18 +324,19 @@
             var iconClass = $(this).data('icon');
             $('.icon').removeClass('lift');
             $('.' + iconClass).addClass('lift');
+            $('.' + iconClass).addClass('grad');
         }, function() {
             $('.icon').removeClass('lift');
+            $('.icon').removeClass('grad');
         });
         });
       </script>
 
     <body>
         <header id="topBar">
-            <div class="icon-container">
-                <ion-icon name="chatbubbles-outline" style="font-size: 5rem;"></ion-icon>
+            <div id="topBar">
+                <a href="intro" class="title">Dashboard</a>
             </div>
-            <li><a class="webicon" href="intro">Oasis</a></li>
         </header>
         <h1>Hello! <%= username%></h1>
         <br>
