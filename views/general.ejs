@@ -433,6 +433,11 @@ button.BtnP:hover {
     -o-text-fill-color: transparent;
     transform: scale(1.5);
   }
+
+  #commentBtn {
+    position: relative;
+    left: 200px;
+  }
     </style>
 
 
@@ -528,12 +533,17 @@ button.BtnP:hover {
                             <% } %> 
                       
                     </form>
-                    <form action="/commentGeneralPost" method="POST" id="commentPost" class="comment-form">
-                        <input type="hidden" name="postId" value="<%= post.id %>">
-                        <input type="text" name="content">
-                        <input type="hidden" name="username" value="<%= username %>">
-                        <button>post</button>
-                    </form>
+                    <button id="commentBtn"><ion-icon name="create-outline"></ion-icon></button>
+                    <div id="commentSection" class="hidden">
+                    <div id="commentBox" class="hidden">
+                      <form action="/commentGeneralPost" method="POST" id="commentPost" class="comment-form">
+                          <input type="hidden" name="postId" value="<%= post.id %>">
+                          <input type="text" name="content">
+                          <input type="hidden" name="username" value="<%= username %>">
+                          <button>post</button>
+                      </form>
+                    </div>
+                    </div>
                     <div>
                     <%var likes = 0 %>
                     <% generalPostsLikes.forEach(like => { %>
@@ -562,6 +572,13 @@ button.BtnP:hover {
             document.getElementById("closeForm").addEventListener("click", function() {
                 document.getElementById("inputBox").classList.add("hidden")
             })
+
+            document.getElementById("commentBtn").addEventListener("click", function() {
+                document.getElementById("commentBox").classList.remove("hidden")
+            })
+
+
+            
 
         </script>
         <div id="spacing"></div>
