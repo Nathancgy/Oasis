@@ -547,7 +547,7 @@ button.BtnP:hover {
 
                 </div>
 
-                    <form id="likePost" class="like-form" method="POST" action="/likeGeneralPost">
+                    <form id="likePost<%= post.id %>" class="like-form">
                         <input type="hidden" name="postId" value="<%= post.id %>">
                         <input type="hidden" name="username" value="<%= username %>">
                         <input type="hidden" name="forum" value="general">
@@ -564,6 +564,41 @@ button.BtnP:hover {
                             <% } %> 
                       
                     </form>
+
+                    <script>
+                        jQuery(document).ready(function() {
+                            jQuery('#likePost<%= post.id %>').submit((function(event) {
+                                event.preventDefault();
+                
+                                var form = jQuery(this);
+                                var formData = form.serialize();
+                
+                                var submitButton = form.find('button[type="submit"]');
+                                submitButton.prop('disabled', true);
+                
+                                form.append('<p>Loading...</p>');
+                
+                                jQuery.ajax({
+                                    type: 'POST',
+                                    url: '/likeGeneralPost',
+                                    data: formData,
+                                    success: function(response) {
+                                        form.append('<p>Form submitted successfully!</p>');
+                                        form.trigger('reset');
+                                        submitButton.prop('disabled', false);
+                                    },
+                                    error: function(error) {
+                                        form.append('<p>An error</p>');
+                                        submitButton.prop('disabled', false);
+                                    },
+                                    complete: function() {
+                                        form.find('p').remove();
+                                        window.location.reload();
+                                    }
+                                });
+                            }));
+                        });
+                    </script>
 
                     
 

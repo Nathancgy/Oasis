@@ -218,7 +218,7 @@ app.post('/likeGeneralPost', async (req, res) => {
     await Like.deleteMany({ postId: req.body.postId, username: req.body.username })
     const like = new Like(req.body);
     console.log('likED')
-    like.save().then((result) => {
+    await like.save().then((result) => {
         res.redirect('/general');
     })
     
