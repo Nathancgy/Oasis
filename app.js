@@ -115,6 +115,9 @@ app.get('/login', (req, res) => {
     res.render('login');
 });
 
+app.get('/verification', (req,res) =>{
+    res.render('verification');
+})
 
 app.post('/login', passport.authenticate('local', {
     successRedirect: 'dashboard',
