@@ -45,4 +45,8 @@ Instructions for how others can contribute to the project
 
 ## License
 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT)
+This project is licensed under the GNU General Public License (GPL) version 3.0. You can find the full license text [here](https://www.gnu.org/licenses/gpl-3.0.en.html).
+
+The GPL is a copyleft license that ensures software freedom and encourages sharing and open-source collaboration. It grants users the freedom to use, modify, and distribute the software, as long as any modifications or derivatives are also distributed under the same GPL license.
+
+For more information about the GPL and its terms, please refer to the [GNU website](https://www.gnu.org/licenses/gpl-3.0.en.html).
