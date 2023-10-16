@@ -14,7 +14,6 @@ const Like = require('./models/like');
 const Likestatus = require('./models/likestatus');
 const Comment = require('./models/comment');
 
-const bodyParser = require('body-parser');
 
 passport.use(new LocalStrategy(
     async (username, password, done) => {
@@ -115,6 +114,7 @@ app.get('/login', (req, res) => {
     res.render('login');
 });
 
+
 app.post('/login', passport.authenticate('local', {
     successRedirect: 'dashboard',
     failureRedirect: '/login'
@@ -139,14 +139,6 @@ app.get('/contact',(req, res) => {
 app.get('/test', (req, res) => {
     res.render('test');
 })
-
-app.post('/submit', (req, res) => {
-    const name = req.body.name;
-    const email = req.body.email;
-    console.log(name, email);
-    res.send('Form submitted successfully!');
-
-});
 
 app.get('/general', checkAuthenticated, async (req, res) => {
     const generalPosts = await Post.find({ group: 'general' });
@@ -217,8 +209,7 @@ app.post('/likeGeneralPost', async (req, res) => {
 
     await Like.deleteMany({ postId: req.body.postId, username: req.body.username })
     const like = new Like(req.body);
-    console.log('likED')
-    await like.save().then((result) => {
+    like.save().then((result) => {
         res.redirect('/general');
     })
     
