@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AJAX Submit Form Example</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h1>AJAX Submit Form Example</h1>
+  
+  <form id="myForm">
+    <input type="text" name="name" placeholder="Enter your name">
+    <input type="email" name="email" placeholder="Enter your email">
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    jQuery(document).ready(function() {
+  jQuery('#myForm').submit(function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    var form = jQuery(this);
+    var formData = form.serialize(); // Serialize form data
+
+    // Disable the submit button to prevent multiple submissions
+    var submitButton = form.find('button[type="submit"]');
+    submitButton.prop('disabled', true);
+
+    // Show loading feedback to the user
+    form.append('<p>Loading...</p>');
+
+    // AJAX request
+    jQuery.ajax({
+      type: 'POST',
+      url: '/submit',
+      data: formData,
+      success: function(response) {
+        // Show success message to the user
+        form.append('<p>Form submitted successfully!</p>');
+
+        // Clear form fields
+        form.trigger('reset');
+
+        // Re-enable the submit button
+        submitButton.prop('disabled', false);
+      },
+      error: function(error) {
+        // Show error message to the user
+        form.append('<p>An error occurred. Please try again later.</p>');
+
+        // Re-enable the submit button
+        submitButton.prop('disabled', false);
+      },
+      complete: function() {
+        // Remove loading feedback
+        form.find('p').remove();
+      }
+    });
+  });
+});
+  </script>
+</body>
+</html>

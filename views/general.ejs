@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <title>General</title>
+<<<<<<< HEAD
     <style>
         html{
             width: 100%;
@@ -448,16 +449,18 @@ button.BtnP:hover {
     </style>
 
 
+
     <head>
         <div id="topBar">
             <a href="intro" class="title">General</a>
         </div>
         <br>
         <br>
-        <link rel="stylesheet">
+        <link rel="stylesheet" href="/general.css">
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
         <script src="https://kit.fontawesome.com/8394235f03.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body>
         <a href="dashboard" id="backButton">Back to Dashboard</a>
@@ -468,7 +471,7 @@ button.BtnP:hover {
             </button>
         </div>
         <div id="inputBox" class="hidden">
-            <form action="/general" method="POST" id="postForm">
+            <form id="postForm">
                 <button id="closeForm">
                     <ion-icon name="close-circle-outline"></ion-icon>
                 </button>
@@ -484,13 +487,48 @@ button.BtnP:hover {
                     <label class="switch">
                         <input type="checkbox" name = "postAnonymous">
                         <span class="slider round">
-                            <p class="posta">Post anonymously</p>
+                            <h6 class="posta">Post anonymously</p>
                         </span>
                     </label>
                 </div>
+                <div id="uploadPostStatus"></div>
                 <br><br>
                 <button class="BtnP">Post</button>
             </form>
+            <script>
+                jQuery(document).ready(function() {
+                    jQuery('#postForm').submit((function(event) {
+                        event.preventDefault();
+
+                        var form = jQuery(this);
+                        var formData = form.serialize();
+
+                        var submitButton = form.find('button[type="submit"]');
+                        submitButton.prop('disabled', true);
+
+                        form.append('<p>Loading...</p>');
+
+                        jQuery.ajax({
+                            type: 'POST',
+                            url: '/general',
+                            data: formData,
+                            success: function(response) {
+                                form.append('<p>Form submitted successfully!</p>');
+                                form.trigger('reset');
+                                submitButton.prop('disabled', false);
+                            },
+                            error: function(error) {
+                                form.append('<p>An error');
+                                submitButton.prop('disabled', false);
+                            },
+                            complete: function() {
+                                form.find('p').remove();
+                                window.location.reload();
+                            }
+                        })
+                    }))
+                })
+            </script>
         </div>
         <div class="bg">
             <div id="posts" class="word-box">
@@ -523,7 +561,7 @@ button.BtnP:hover {
 
                 </div>
 
-                    <form action="/likeGeneralPost" method="POST" id="likePost" class="like-form">
+                    <form id="likePost<%= post.id %>" class="like-form">
                         <input type="hidden" name="postId" value="<%= post.id %>">
                         <input type="hidden" name="username" value="<%= username %>">
                         <input type="hidden" name="forum" value="general">
@@ -540,7 +578,91 @@ button.BtnP:hover {
                             <% } %> 
                       
                     </form>
+<<<<<<< HEAD
                     </div>
+=======
+
+                    <script>
+                        jQuery(document).ready(function() {
+                            jQuery('#likePost<%= post.id %>').submit((function(event) {
+                                event.preventDefault();
+                
+                                var form = jQuery(this);
+                                var formData = form.serialize();
+                
+                                var submitButton = form.find('button[type="submit"]');
+                                submitButton.prop('disabled', true);
+                
+                                form.append('<p>Loading...</p>');
+                
+                                jQuery.ajax({
+                                    type: 'POST',
+                                    url: '/likeGeneralPost',
+                                    data: formData,
+                                    success: function(response) {
+                                        form.append('<p>Form submitted successfully!</p>');
+                                        form.trigger('reset');
+                                        submitButton.prop('disabled', false);
+                                    },
+                                    error: function(error) {
+                                        form.append('<p>An error</p>');
+                                        submitButton.prop('disabled', false);
+                                    },
+                                    complete: function() {
+                                        form.find('p').remove();
+                                        window.location.reload();
+                                    }
+                                });
+                            }));
+                        });
+                    </script>
+
+                    
+
+                    <form action="/commentGeneralPost" method="POST" id="commentPost<%= post.id%>" class="comment-form">
+                        <input type="hidden" name="postId" value="<%= post.id %>">
+                        <input type="text" name="content">
+                        <input type="hidden" name="username" value="<%= username %>">
+                        <button>post</button>
+                    </form>
+
+                    <script>
+                        jQuery(document).ready(function() {
+                            jQuery('#commentPost<%= post.id %>').submit((function(event) {
+                                event.preventDefault();
+                
+                                var form = jQuery(this);
+                                var formData = form.serialize();
+                
+                                var submitButton = form.find('button[type="submit"]');
+                                submitButton.prop('disabled', true);
+                
+                                form.append('<p>Loading...</p>');
+                
+                                jQuery.ajax({
+                                    type: 'POST',
+                                    url: '/commentGeneralPost',
+                                    data: formData,
+                                    success: function(response) {
+                                        form.append('<p>Form submitted successfully!</p>');
+                                        form.trigger('reset');
+                                        submitButton.prop('disabled', false);
+                                    },
+                                    error: function(error) {
+                                        form.append('<p>An error</p>');
+                                        submitButton.prop('disabled', false);
+                                    },
+                                    complete: function() {
+                                        form.find('p').remove();
+                                        window.location.reload();
+                                    }
+                                });
+                            }));
+                        });
+                    </script>
+
+
+>>>>>>> 0152ff2a47e3dada9f56b6e27c924e502b2de846
                     <div>
                     <%var likes = 0 %>
                     <% generalPostsLikes.forEach(like => { %>
@@ -569,6 +691,7 @@ button.BtnP:hover {
                     <% }) %>-->
 
                    <% })%>
+                   
                     </div>
             </div>
         </div>
