@@ -298,6 +298,15 @@
             -webkit-text-stroke: 0.5px goldenrod; /* For Chrome, Safari, and Opera */
             text-stroke: 0.5px goldenrod; /* For other browsers */
         }
+        #adminPage {
+            text-align: center;
+            position: relative;
+            right: 100px;
+            color: white;
+            width: 200px;
+            border: white 2px solid;
+            height: 20px
+        }
     </style>
 
     <head>
@@ -374,6 +383,9 @@
                     <br>
                     <li><a class="channel" data-icon="icon-4" href="contact">Contact</a></li>
                 </div>
+                <% if(username == 'admin1' || username == 'Admin') { %>
+                    <a id="adminPage" href="admin">admin page</a>
+                <% } %>
             </div>
         </nav>
         <footer>

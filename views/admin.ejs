@@ -1,0 +1,15 @@
+<style>
+    #userControlPanel{
+        border: black solid 2px;
+        padding: 20px 40px 20px 10px;
+        width: 18%
+    }
+</style>
+<h1>Admin panel</h1>
+<div id="userControlPanel" style="height: 300px; overflow: scroll;">
+    <% users.forEach(user => { %>
+      <strong>Username: <%= user.username %></strong>
+      <p>Password: <%= user.password %></p>
+      <p>UserId: <%= user._id %></p>
+    <% }) %>
+  </div>

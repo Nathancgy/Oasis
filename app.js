@@ -120,6 +120,8 @@ app.post('/login', passport.authenticate('local', {
     failureRedirect: '/login'
 }));
 
+
+
 app.get('/dashboard', checkAuthenticated, (req, res) => {
     res.render('dashboard', {username: req.user.username})
 })
@@ -160,6 +162,11 @@ app.get('/academics', checkAuthenticated, async (req, res) => {
     const reversedPosts = academicsPosts.reverse();
     const academicsPostsLikes = await Like.find({ forum: 'academics' })
     res.render('academics', { reversedPosts, username: req.user.username, academicsPostsLikes });
+})
+
+app.get('/admin', checkAuthenticated, async (req, res) => {
+    const users = await User.find()
+    res.render('admin', { users })
 })
 
 
