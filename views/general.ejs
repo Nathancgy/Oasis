@@ -38,47 +38,47 @@
                     <label class="switch">
                         <input type="checkbox" name = "postAnonymous">
                         <span class="slider round">
-                            <h6 class="posta">Post anonymously</p>
+                            <h6 class="posta">Anonymously?</p>
                         </span>
                     </label>
                 </div>
                 <div id="uploadPostStatus"></div>
                 <br><br>
-                <button class="BtnP">Post</button>
+                <button class="Btn" style="bottom: 30px;">Post</button>
             </form>
             <script>
                 jQuery(document).ready(function() {
-                    jQuery('#postForm').submit((function(event) {
-                        event.preventDefault();
+                jQuery('#postForm').submit(function(event) {
+                    event.preventDefault();
 
-                        var form = jQuery(this);
-                        var formData = form.serialize();
+                    var form = jQuery(this);
+                    var formData = form.serialize();
 
-                        var submitButton = form.find('button[type="submit"]');
-                        submitButton.prop('disabled', true);
+                    var submitButton = form.find('button[type="submit"]');
+                    submitButton.prop('disabled', true);
 
-                        form.append('<p>Loading...</p>');
+                    form.append('<p>Loading...</p>');
 
-                        jQuery.ajax({
-                            type: 'POST',
-                            url: '/general',
-                            data: formData,
-                            success: function(response) {
-                                form.append('<p>Form submitted successfully!</p>');
-                                form.trigger('reset');
-                                submitButton.prop('disabled', false);
-                            },
-                            error: function(error) {
-                                form.append('<p>An error');
-                                submitButton.prop('disabled', false);
-                            },
-                            complete: function() {
-                                form.find('p').remove();
-                                window.location.reload();
-                            }
-                        })
-                    }))
-                })
+                    jQuery.ajax({
+                        type: 'POST',
+                        url: '/general',
+                        data: formData,
+                        success: function(response) {
+                            form.append('<p>Form submitted successfully!</p>');
+                            form.trigger('reset');
+                            submitButton.prop('disabled', false);
+                        },
+                        error: function(error) {
+                            form.append('<p>An error occurred. Please try again.</p>');
+                            submitButton.prop('disabled', false);
+                        },
+                        complete: function() {
+                            form.find('p').remove();
+                            window.location.reload();
+                        }
+                    });
+                });
+            });
             </script>
         </div>
         <div class="bg">
@@ -153,7 +153,7 @@
                                         submitButton.prop('disabled', false);
                                     },
                                     error: function(error) {
-                                        form.append('<p>An error</p>');
+                                        form.append('<p>An error occurred. Please try again.</p>');
                                         submitButton.prop('disabled', false);
                                     },
                                     complete: function() {
